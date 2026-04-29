@@ -12,7 +12,7 @@ Lorem Ipsum
 [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
 ### use of AI
 * prompt: remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.
-* prompt: i'm getting started on a new project push_swap, i need to create 2 stacks called a and b, stack a contains/receives a list of integers gotten from the command line interface as arguments, stack b is empty at the start. the goal is to sort in ascending order numbers into stack a, with only 11 operations, how do i start making the stacks, the plan is to used the linked list technique with nodes
+* prompt: i'm getting started on a new project push_swap, i need to create 2 stacks called a and b, stack a contains/receives a list of integers gotten from the command line interface as arguments, stack b is empty at the start. the goal is to sort in ascending order numbers into stack a, with only 11 operations, how do i start making the stacks, the plan is to use the linked list technique with nodes
 
 ## Algorithms
 Lorem Ipsum
