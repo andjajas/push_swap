@@ -15,12 +15,11 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wextra -Wall -Werror
 SOURCE = *.c
-LIBFT = libft.a
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SOURCE) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(SOURCE) -o $(NAME)
 
 clean:
 	@echo "Nothing to clean!"
