@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/01 14:13:25 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/01 21:36:02 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,29 @@ typedef struct s_stack
 	t_num			*bottom;
 	int				size;
 }					t_stack;
+
+enum e_strategy
+{
+	ADAPTIVE;
+	SIMPLE;
+	MEDIUM;
+	COMPLEX
+};
+
+enum e_operation
+{
+	SA;
+	SB;
+	SS;
+	PA;
+	PB;
+	RA;
+	RB;
+	RR;
+	RRA;
+	RRB;
+	RRR
+};
 
 void	stack_init(t_stack *stack);
 bool	ft_isdigit(int c);
