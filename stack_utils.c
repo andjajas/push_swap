@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/01 21:35:57 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/02 18:31:40 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 void	stack_init(t_stack *stack)
 {
 	stack->top = NULL;
-	stack->bottom = NULL;
 	stack->size = 0;
 }
 
-t_num	*add_new_node(t_num *new)
+t_num	*new_node(int num)
 {
+	t_num	*new;
+
 	new = malloc(sizeof(t_num));
 	if (!new)
 		return (NULL);
@@ -30,31 +31,53 @@ t_num	*add_new_node(t_num *new)
 	return (new);
 }
 
-void	stack_add_back(t_num **stack, t_num *new)
+void	stack_add_back(t_stack *stack, t_num *new)
 {
-	t_num	*tail;
+	t_num	*bottom;
 
 	if (!stack || !new)
 		return ;
-	if (*stack == NULL)
+	if (stack->top == NULL && stack->size == 0)
 	{
-		*stack = new;
-		return ;
+		stack->top = new;
+		new->prev = new;
+		new->next = new;
+		stack->size++;
 	}
-	tail = ft_stacklast(*stack);
-	tail->next = new;
+	else
+	{
+		bottom = stack->top->prev;
+		new->prev = bottom;
+		new->next = stack->top;
+		bottom->next = new;
+		stack->top->prev = new;
+		stack->size++;
+	}
 }
 
-void	stack_clear(t_num **stack, void (*del)(void *))
+void	clear_stack(t_stack *stack)
 {
-	t_num	*tmp_stack;
+	t_num	*bottom;
+	t_num	*now;
+	t_num	*next;
 
-	if (!stack || !del)
+	if (!stack)
 		return ;
-	while (*stack)
+	if (stack->size == 1)
 	{
-		tmp_stack = (*stack)->next;
-		ft_stackdelone(*stack, del);
-		*stack = tmp_stack;
+		now = stack->top;
+		free(now);
+		return ;
 	}
+	bottom = stack->top->prev;
+	bottom->next = NULL;
+	stack->top->prev = NULL;
+	now = stack->top;
+	while(now)
+	{
+		next = now->next;
+		free(now);
+		now = next;
+	}
+	stack_init(stack);
 }
