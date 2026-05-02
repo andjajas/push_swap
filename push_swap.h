@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/01 21:36:02 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/02 18:34:09 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_num
 typedef struct s_stack
 {
 	t_num			*top;
-	t_num			*bottom;
 	int				size;
 }					t_stack;
 
@@ -53,11 +52,15 @@ enum e_operation
 	RRR
 };
 
-void	stack_init(t_stack *stack);
 bool	ft_isdigit(int c);
 bool	ft_isspace(int c);
 bool	ft_isvalidnumber(const char *s);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);
+void	stack_init(t_stack *stack);
+t_num	*new_node(int num);
+void	stack_add_back(t_stack *stack, t_num *new);
+void	clear_stack(t_stack *stack);
+
 
 #endif
