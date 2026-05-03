@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/03 16:32:57 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/03 20:19:27 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ t_num				*stack_pop_top(t_stack *stack);
 void				stack_add_front(t_stack *stack, t_num *new);
 void				pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats);
 void				pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats);
+void				sa(t_stack *stack, t_stats *stats);
+void				sb(t_stack *stack, t_stats *stats);
 
 #endif
