@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/02 18:34:09 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/03 16:32:57 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,23 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
-enum e_strategy
+typedef struct s_stats
+{
+	int				sa_count;
+	int				sb_count;
+	int				ss_count;
+	int				pa_count;
+	int				pb_count;
+	int				ra_count;
+	int				rb_count;
+	int				rr_count;
+	int				rra_count;
+	int				rrb_count;
+	int				rrr_count;
+	int				total_operation_count;
+}					t_stats;
+
+enum				e_strategy
 {
 	ADAPTIVE;
 	SIMPLE;
@@ -37,7 +53,7 @@ enum e_strategy
 	COMPLEX
 };
 
-enum e_operation
+enum				e_operation
 {
 	SA;
 	SB;
@@ -52,16 +68,18 @@ enum e_operation
 	RRR
 };
 
-bool	ft_isdigit(int c);
-bool	ft_isspace(int c);
-bool	ft_isvalidnumber(const char *s);
-size_t	ft_strlen(const char *s);
-void	ft_putstr(const char *s);
-void	stack_init(t_stack *stack);
-t_num	*new_node(int num);
-void	stack_add_back(t_stack *stack, t_num *new);
-void	clear_stack(t_stack *stack);
-void	stack_add_front(t_stack *stack, t_num *new);
-
+bool				ft_isdigit(int c);
+bool				ft_isspace(int c);
+bool				ft_isvalidnumber(const char *s);
+size_t				ft_strlen(const char *s);
+void				ft_putstr(const char *s);
+void				stack_init(t_stack *stack);
+t_num				*new_node(int num);
+void				stack_add_back(t_stack *stack, t_num *new);
+void				clear_stack(t_stack *stack);
+t_num				*stack_pop_top(t_stack *stack);
+void				stack_add_front(t_stack *stack, t_num *new);
+void				pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats);
+void				pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats);
 
 #endif

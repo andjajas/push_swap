@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/02 18:31:40 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/03 15:55:07 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	clear_stack(t_stack *stack)
 	bottom->next = NULL;
 	stack->top->prev = NULL;
 	now = stack->top;
-	while(now)
+	while (now)
 	{
 		next = now->next;
 		free(now);
