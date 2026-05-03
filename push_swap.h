@@ -61,6 +61,7 @@ void	stack_init(t_stack *stack);
 t_num	*new_node(int num);
 void	stack_add_back(t_stack *stack, t_num *new);
 void	clear_stack(t_stack *stack);
+void	stack_add_front(t_stack *stack, t_num *new);
 
 
 #endif
