@@ -7,12 +7,17 @@ The goal of this project is to discover algorithmic complexity in a very concret
 Lorem Ipsum
 
 ## Resources
-[Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
+#### wikipedia
 [algorithmic complexity](https://en.wikipedia.org/wiki/Analysis_of_algorithms)<br>
-[stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
-### use of AI
-* prompt: remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.
-* prompt: i'm getting started on a new project push_swap, i need to create 2 stacks called a and b, stack a contains/receives a list of integers gotten from the command line interface as arguments, stack b is empty at the start. the goal is to sort in ascending order numbers into stack a, with only 11 operations, how do i start making the stacks, the plan is to use the linked list technique with nodes
+[stack, push, pop (wikipedia)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
+#### geeksforgeeks
+[stack in C, push, pop (geeksforgeeks)](https://www.geeksforgeeks.org/c/implement-stack-in-c/)<br>
+#### other
+[Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
+#### use of AI
+[Microsoft copilot](https://copilot.microsoft.com/) was used with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
+* mandatory prompt: remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.
+* example of a follow-up prompt: I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.<br>
 
 ## Algorithms
 Lorem Ipsum

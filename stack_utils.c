@@ -37,7 +37,7 @@ void	stack_add_back(t_stack *stack, t_num *new)
 
 	if (!stack || !new)
 		return ;
-	if (stack->top == NULL && stack->size == 0)
+	if (stack->top == NULL)
 	{
 		stack->top = new;
 		new->prev = new;
