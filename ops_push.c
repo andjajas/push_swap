@@ -12,6 +12,32 @@
 
 #include "push_swap.h"
 
+void	pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
+{
+	t_num	*node;
+
+	node = stack_pop_top(stack_b);
+	if (!node)
+		return ;
+	stack_add_front(stack_a, node);
+	write(1, "pa\n", 3);
+	stats->pa_count++;
+	stats->total_operation_count++;
+}
+
+void	pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats)
+{
+	t_num	*node;
+
+	node = stack_pop_top(stack_a);
+	if (!node)
+		return ;
+	stack_add_front(stack_b, node);
+	write(1, "pb\n", 3);
+	stats->pb_count++;
+	stats->total_operation_count++;
+}
+
 t_num	*stack_pop_top(t_stack *stack)
 {
 	t_num	*node_pop;
@@ -64,30 +90,4 @@ void	stack_add_front(t_stack *stack, t_num *node)
 		stack->top = node;
 		stack->size++;
 	}
-}
-
-void	pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
-{
-	t_num	*node;
-
-	node = stack_pop_top(stack_b);
-	if (!node)
-		return ;
-	stack_add_front(stack_a, node);
-	write(1, "pa\n", 3);
-	stats->pa_count++;
-	stats->total_operation_count++;
-}
-
-void	pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats)
-{
-	t_num	*node;
-
-	node = stack_pop_top(stack_a);
-	if (!node)
-		return ;
-	stack_add_front(stack_b, node);
-	write(1, "pb\n", 3);
-	stats->pb_count++;
-	stats->total_operation_count++;
 }
