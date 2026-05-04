@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/03 20:19:27 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/04 15:51:59 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,23 @@
 # define PUSH_SWAP_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 # include <unistd.h>
+
+enum				e_strategy
+{
+	UNSET = -1,
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+};
+
+struct s_settings
+{
+	enum e_strategy	strategy;
+	bool			bench;
+};
 
 typedef struct s_num
 {
@@ -45,28 +61,20 @@ typedef struct s_stats
 	int				total_operation_count;
 }					t_stats;
 
-enum				e_strategy
-{
-	ADAPTIVE;
-	SIMPLE;
-	MEDIUM;
-	COMPLEX
-};
-
-enum				e_operation
-{
-	SA;
-	SB;
-	SS;
-	PA;
-	PB;
-	RA;
-	RB;
-	RR;
-	RRA;
-	RRB;
-	RRR
-};
+// enum				e_operation
+// {
+// 	SA,
+// 	SB,
+// 	SS,
+// 	PA,
+// 	PB,
+// 	RA,
+// 	RB,
+// 	RR,
+// 	RRA,
+// 	RRB,
+// 	RRR
+// };
 
 bool				ft_isdigit(int c);
 bool				ft_isspace(int c);
@@ -83,5 +91,6 @@ void				pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats);
 void				pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats);
 void				sa(t_stack *stack, t_stats *stats);
 void				sb(t_stack *stack, t_stats *stats);
+struct s_settings	set_settings(int argc, char **argv, int *i);
 
 #endif
