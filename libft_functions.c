@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/01 12:40:07 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/04 16:17:28 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/04 18:00:34 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,6 @@ size_t	ft_strlen(const char *s)
 void	ft_putstr(const char *s)
 {
 	write(1, s, ft_strlen(s));
-}
-
-bool	ft_isvalidnumber(const char *s)
-{
-	if (*s == '\0')
-		return (false);
-	while (ft_isspace(*s) == true)
-		s++;
-	if (*s == '+' || *s == '-')
-		s++;
-	while (ft_isdigit(*s) == true)
-		s++;
-	if (*s == '\0')
-		return (true);
-	else
-		return (false);
 }
 
 int	ft_atoi(const char *string)

@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/04 15:51:59 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/04 18:42:11 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_stats
 
 bool				ft_isdigit(int c);
 bool				ft_isspace(int c);
-bool				ft_isvalidnumber(const char *s);
+bool				is_valid_input(char **argv);
 size_t				ft_strlen(const char *s);
 void				ft_putstr(const char *s);
 void				stack_init(t_stack *stack);
