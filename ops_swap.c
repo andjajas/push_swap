@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 17:48:30 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/04 19:08:54 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/04 20:38:48 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	rewire_ptrs(t_stack *stack);
 static bool	swap_or_not(t_stack *stack);
 
-void	sa(t_stack *stack, t_stats *stats)
+void	sa(t_stack *stack, int *stats)
 {
 	if (!stack->top || !stack->top->next)
 		return ;
@@ -24,11 +24,10 @@ void	sa(t_stack *stack, t_stats *stats)
 	else
 		rewire_ptrs(stack);
 	write(1, "sa\n", 3);
-	stats->sa_count++;
-	stats->total_operation_count++;
+	stats[SA]++;
 }
 
-void	sb(t_stack *stack, t_stats *stats)
+void	sb(t_stack *stack, int *stats)
 {
 	if (!stack->top || !stack->top->next)
 		return ;
@@ -37,23 +36,18 @@ void	sb(t_stack *stack, t_stats *stats)
 	else
 		rewire_ptrs(stack);
 	write(1, "sb\n", 3);
-	stats->sb_count++;
-	stats->total_operation_count++;
+	stats[SB]++;
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
+void	ss(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	bool	did_swap_a;
 	bool	did_swap_b;
 
 	did_swap_a = swap_or_not(stack_a);
 	did_swap_b = swap_or_not(stack_b);
-
 	if (did_swap_a || did_swap_b)
-	{
-		stats->ss_count++;
-		stats->total_operation_count++;
-	}
+		stats[SS]++;
 }
 
 static void	rewire_ptrs(t_stack *stack)

@@ -6,19 +6,25 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/03 15:55:07 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/04 22:13:27 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_init(t_stack *stack)
+t_stack	*stack_init(void)
 {
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (stack == NULL)
+		return (NULL);
 	stack->top = NULL;
 	stack->size = 0;
+	return (stack);
 }
 
-t_num	*new_node(int num)
+t_num	*new_node(long long int num)
 {
 	t_num	*new;
 
@@ -63,10 +69,10 @@ void	clear_stack(t_stack *stack)
 
 	if (!stack)
 		return ;
-	if (stack->size == 1)
+	if (stack->size <= 1)
 	{
-		now = stack->top;
-		free(now);
+		free(stack->top);
+		free(stack);
 		return ;
 	}
 	bottom = stack->top->prev;
@@ -79,5 +85,5 @@ void	clear_stack(t_stack *stack)
 		free(now);
 		now = next;
 	}
-	stack_init(stack);
+	free(stack);
 }

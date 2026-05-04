@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/04 19:19:06 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/04 22:06:07 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@ int	main(int argc, char **argv)
 {
 	int					i;
 	struct s_settings	settings;
+	t_stack				*stack_a;
 
 	i = 1;
 	settings = set_settings(argc, argv, &i);
-	if (is_valid_input(argv + i) == false)
+	argv += i;
+	if (is_valid_input(argv) == false)
+	{
+		raise_error();
+		return (1);
+	}
+	stack_a = convert_to_lst(argv);
+	if (stack_a == NULL)
 	{
 		raise_error();
 		return (1);

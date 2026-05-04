@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_utils.c                                       :+:    :+:            */
+/*   ops_push.c                                        :+:    :+:             */
 /*                                                     +:+                    */
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 15:47:09 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/03 15:47:09 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/04 20:36:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
+void	pa(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	t_num	*node;
 
@@ -21,11 +21,10 @@ void	pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
 		return ;
 	stack_add_front(stack_a, node);
 	write(1, "pa\n", 3);
-	stats->pa_count++;
-	stats->total_operation_count++;
+	stats[PA]++;
 }
 
-void	pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats)
+void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
 {
 	t_num	*node;
 
@@ -34,8 +33,7 @@ void	pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats)
 		return ;
 	stack_add_front(stack_b, node);
 	write(1, "pb\n", 3);
-	stats->pb_count++;
-	stats->total_operation_count++;
+	stats[PB]++;
 }
 
 t_num	*stack_pop_top(t_stack *stack)
