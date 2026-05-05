@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/05 18:02:06 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:29:16 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
 struct s_settings	set_settings(int argc, char **argv, int *i);
 t_stack				*convert_to_lst(char **argv);
 void				push_swap(t_stack *stack, struct s_settings settings);
-void				solve_simple(t_stack *stack, int *stats);
-void				solve_medium(t_stack *stack, int *stats);
-void				solve_complex(t_stack *stack, int *stats);
+void				solve_simple(t_stack *stack_a, int *stats);
+void				solve_medium(t_stack *stack_a, int *stats);
+void				solve_complex(t_stack *stack_a, int *stats);
 void				print_bench(float disorder, enum e_strategy strategy, int *stats);
 
 #endif
