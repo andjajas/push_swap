@@ -13,7 +13,7 @@
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -O3
 SOURCE = *.c
 
 all: $(NAME)
@@ -29,6 +29,9 @@ fclean:
 
 re: fclean all
 
+debug:
+	$(CC) $(CFLAGS) -g $(SOURCE) -o $(NAME)
+
 help:
 	@echo "\
 Usage:\n\
@@ -38,6 +41,7 @@ make		Same as make all.\n\
 make clean	Does not delete anything..?\n\
 make fclean	Removes $(NAME).\n\
 make re		Does fclean, then remakes the program.\n\
+make debug	Remakes the $(NAME) program in debug mode.\n\
 "
 
 .PHONY: all clean fclean re program help

@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:14:13 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 16:15:51 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/05 18:19:48 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, int *stats)
 	stack_a->top = stack_a->top->prev;
 	stack_b->top = stack_b->top->prev;
 	write(1, "rrr\n", 4);
-	stats[RRR]+;
+	stats[RRR]++;
 }

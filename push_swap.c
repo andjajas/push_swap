@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/05 17:53:20 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:00:01 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_swap(t_stack *stack, struct s_settings settings)
 	float			disorder;
 	enum e_strategy strategy;
 
-	clear_array(stats, sizeof(stats));
+	clear_array(stats, sizeof(stats) / sizeof(int));
 	disorder = calculate_disorder(stack);
 	if (settings.strategy == UNSET)
 		settings.strategy = ADAPTIVE;

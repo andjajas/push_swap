@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/04 22:06:07 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:02:51 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 {
 	int					i;
 	struct s_settings	settings;
-	t_stack				*stack_a;
+	t_stack				*stack;
 
 	i = 1;
 	settings = set_settings(argc, argv, &i);
@@ -29,14 +29,16 @@ int	main(int argc, char **argv)
 		raise_error();
 		return (1);
 	}
-	stack_a = convert_to_lst(argv);
-	if (stack_a == NULL)
+	stack = convert_to_lst(argv);
+	if (stack == NULL)
 	{
 		raise_error();
 		return (1);
 	}
-	printf("Strategy = %d\n", settings.strategy);
-	printf("Bench = %s\n", settings.bench ? "true" : "false");
+	push_swap(stack, settings);
+	clear_stack(stack);
+	if (settings.bench == false)
+		printf("Bench was not enabled\n");
 	return (0);
 }
 
