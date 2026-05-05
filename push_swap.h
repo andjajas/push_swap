@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/04 22:23:00 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 15:51:11 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct s_settings
 typedef struct s_num
 {
 	long long int	num;
+	unsigned int	rank;
 	struct s_num	*prev;
 	struct s_num	*next;
 }					t_num;
