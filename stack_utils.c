@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 12:22:00 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 17:13:56 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,27 +63,23 @@ void	stack_add_back(t_stack *stack, t_num *new)
 
 void	clear_stack(t_stack *stack)
 {
-	t_num	*bottom;
 	t_num	*now;
 	t_num	*next;
+	int		i;
 
-	if (stack == NULL)
-		return ;
-	if (stack->size <= 1)
+	if (stack == NULL || stack->top == NULL)
 	{
-		free(stack->top);
 		free(stack);
 		return ;
 	}
-	bottom = stack->top->prev;
-	bottom->next = NULL;
-	stack->top->prev = NULL;
 	now = stack->top;
-	while (now)
+	i = 0;
+	while (i < stack->size)
 	{
 		next = now->next;
 		free(now);
 		now = next;
+		i++;
 	}
 	free(stack);
 }
