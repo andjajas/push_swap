@@ -1,50 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_utils.c                                       :+:    :+:            */
+/*   ops_push.c                                        :+:    :+:             */
 /*                                                     +:+                    */
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 15:47:09 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/03 15:47:09 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/05 19:44:49 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
+static t_num	*stack_pop_top(t_stack *stack);
+static void		stack_add_front(t_stack *stack, t_num *node);
+
+void	pa(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	t_num	*node;
 
+	if (stack_a == NULL || stack_b == NULL)
+		return ;
 	node = stack_pop_top(stack_b);
-	if (!node)
+	if (node == NULL)
 		return ;
 	stack_add_front(stack_a, node);
 	write(1, "pa\n", 3);
-	stats->pa_count++;
-	stats->total_operation_count++;
+	stats[PA]++;
 }
 
-void	pb(t_stack *stack_b, t_stack *stack_a, t_stats *stats)
+void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
 {
 	t_num	*node;
 
+	if (stack_a == NULL || stack_b == NULL)
+		return ;
 	node = stack_pop_top(stack_a);
-	if (!node)
+	if (node == NULL)
 		return ;
 	stack_add_front(stack_b, node);
 	write(1, "pb\n", 3);
-	stats->pb_count++;
-	stats->total_operation_count++;
+	stats[PB]++;
 }
 
-t_num	*stack_pop_top(t_stack *stack)
+static t_num	*stack_pop_top(t_stack *stack)
 {
 	t_num	*node_pop;
 	t_num	*bottom;
 	t_num	*new_top;
 
-	if (!stack->top)
+	if (stack->top == NULL)
 		return (NULL);
 	if (stack->top->next == stack->top)
 	{
@@ -67,11 +72,11 @@ t_num	*stack_pop_top(t_stack *stack)
 	return (node_pop);
 }
 
-void	stack_add_front(t_stack *stack, t_num *node)
+static void	stack_add_front(t_stack *stack, t_num *node)
 {
 	t_num	*bottom;
 
-	if (!stack || !node)
+	if (stack == NULL || node == NULL)
 		return ;
 	if (stack->top == NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/01 21:11:40 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:43:20 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,31 @@
 #include <stdio.h>
 
 static void	raise_error(void);
-static int	get_strategy(const char *argument);
-static bool strmatch(const char *a, const char *b);
 
 int	main(int argc, char **argv)
 {
-	int strategy;
-	int	i;
+	int					i;
+	t_settings			settings;
+	t_stack				*stack;
 
 	i = 1;
-	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
-	{
-		i++;
-	}
-	if (i == argc)
+	settings = set_settings(argc, argv, &i);
+	argv += i;
+	if (is_valid_input(argv) == false)
 	{
 		raise_error();
 		return (1);
 	}
-	strategy = get_strategy(argv[1]);
-	if (strategy != -1)
-		i++;
-	while (i < argc)
+	stack = convert_to_lst(argv);
+	if (stack == NULL)
 	{
-		if (ft_isvalidnumber(argv[i]) == false)
-		{
-			raise_error();
-			return (1);
-		}
-		i++;
+		raise_error();
+		return (1);
 	}
-	printf("Strategy = %d\n", strategy);
+	push_swap(stack, settings);
+	clear_stack(stack);
+	if (settings.bench == false)
+		printf("Bench was not enabled\n");
 	return (0);
 }
 
@@ -53,36 +47,10 @@ static void	raise_error(void)
 	ft_putstr("Error\n");
 }
 
-static bool strmatch(const char *a, const char *b)
-{
-	while (*a != '\0' && *b != '\0')
-	{
-		if (*a != *b)
-			return (false);
-		a++;
-		b++;
-	}
-	return (true);
-}
-
-static int	get_strategy(const char *argument)
-{
-	if (strmatch(argument, "--adaptive") == true)
-		return (0);
-	else if (strmatch(argument, "--simple") == true)
-		return (1);
-	else if (strmatch(argument, "--medium") == true)
-		return (2);
-	else if (strmatch(argument, "--complex") == true)
-		return (3);
-	else
-		return (-1);
-}
-
-
 // Check if no arguments are given
 // Check for flags, and set enum values for them
 // Put everything into a t_num list
-// If any number is invalid or if any allocation fails, free everything then
-// return 1
+// if theres any duplicate numbers or numbers outside of the integer limit,
+// or if any number is invalid or if any allocation fails,
+// free everything then return 1
 // Call the function that andre will use

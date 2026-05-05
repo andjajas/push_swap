@@ -6,24 +6,30 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/03 15:55:07 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/05 17:13:56 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_init(t_stack *stack)
+t_stack	*stack_init(void)
 {
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (stack == NULL)
+		return (NULL);
 	stack->top = NULL;
 	stack->size = 0;
+	return (stack);
 }
 
-t_num	*new_node(int num)
+t_num	*new_node(long long int num)
 {
 	t_num	*new;
 
 	new = malloc(sizeof(t_num));
-	if (!new)
+	if (new == NULL)
 		return (NULL);
 	new->num = num;
 	new->prev = NULL;
@@ -35,7 +41,7 @@ void	stack_add_back(t_stack *stack, t_num *new)
 {
 	t_num	*bottom;
 
-	if (!stack || !new)
+	if (stack == NULL || new == NULL)
 		return ;
 	if (stack->top == NULL)
 	{
@@ -57,27 +63,23 @@ void	stack_add_back(t_stack *stack, t_num *new)
 
 void	clear_stack(t_stack *stack)
 {
-	t_num	*bottom;
 	t_num	*now;
 	t_num	*next;
+	int		i;
 
-	if (!stack)
-		return ;
-	if (stack->size == 1)
+	if (stack == NULL || stack->top == NULL)
 	{
-		now = stack->top;
-		free(now);
+		free(stack);
 		return ;
 	}
-	bottom = stack->top->prev;
-	bottom->next = NULL;
-	stack->top->prev = NULL;
 	now = stack->top;
-	while (now)
+	i = 0;
+	while (i < stack->size)
 	{
 		next = now->next;
 		free(now);
 		now = next;
+		i++;
 	}
-	stack_init(stack);
+	free(stack);
 }
