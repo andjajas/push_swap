@@ -18,6 +18,7 @@ Lorem Ipsum
 #### other
 [Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
 [A site to learn git](https://learngitbranching.js.org/)<br>
+[A site to learn search and replace with sed](https://www.redhat.com/en/blog/edit-text-bash-command)<br>
 Learning enums:
 * [Stackoverflow](https://stackoverflow.com/questions/3134757/define-or-enum)<br>
 * [geeksforgeeks](https://www.geeksforgeeks.org/c/enumeration-enum-c/)<br>

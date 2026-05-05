@@ -6,19 +6,19 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/04 16:02:41 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:49:29 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool				get_bench(const char *argument);
-static enum e_strategy	get_strategy(const char *argument);
+static bool			get_bench(const char *argument);
+static t_e_strategy	get_strategy(const char *argument);
 
-struct s_settings	set_settings(int argc, char **argv, int *i)
+t_settings	set_settings(int argc, char **argv, int *i)
 {
-	struct s_settings	set;
-	bool				flagged;
+	t_settings	set;
+	bool		flagged;
 
 	set.strategy = UNSET;
 	set.bench = false;
@@ -64,7 +64,7 @@ static bool	get_bench(const char *argument)
 		return (false);
 }
 
-static enum e_strategy	get_strategy(const char *argument)
+static t_e_strategy	get_strategy(const char *argument)
 {
 	if (strmatch(argument, "--adaptive") == true)
 		return (ADAPTIVE);
