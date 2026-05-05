@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/05 15:51:11 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/05 17:48:28 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,17 @@ t_stack				*stack_init(void);
 t_num				*new_node(long long int num);
 void				stack_add_back(t_stack *stack, t_num *new);
 void				clear_stack(t_stack *stack);
-t_num				*stack_pop_top(t_stack *stack);
-void				stack_add_front(t_stack *stack, t_num *new);
 void				pa(t_stack *stack_a, t_stack *stack_b, int *stats);
 void				pb(t_stack *stack_b, t_stack *stack_a, int *stats);
 void				sa(t_stack *stack, int *stats);
 void				sb(t_stack *stack, int *stats);
+void				ss(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				ra(t_stack *stack_a, int *stats);
+void				rb(t_stack *stack_b, int *stats);
+void				rr(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				rra(t_stack *stack_a, int *stats);
+void				rrb(t_stack *stack_b, int *stats);
+void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
 struct s_settings	set_settings(int argc, char **argv, int *i);
 t_stack				*convert_to_lst(char **argv);
 
