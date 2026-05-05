@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/05 19:02:51 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:43:20 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	raise_error(void);
 int	main(int argc, char **argv)
 {
 	int					i;
-	struct s_settings	settings;
+	t_settings			settings;
 	t_stack				*stack;
 
 	i = 1;

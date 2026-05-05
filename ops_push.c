@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 15:47:09 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/04 20:36:15 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 19:44:49 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	stack_add_front(t_stack *stack, t_num *node)
 {
 	t_num	*bottom;
 
-	if (stack == NULL|| node == NULL)
+	if (stack == NULL || node == NULL)
 		return ;
 	if (stack->top == NULL)
 	{

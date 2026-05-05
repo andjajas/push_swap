@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/05 19:29:16 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/05 20:23:02 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <unistd.h>
 # include <limits.h>
 
-enum				e_strategy
+typedef enum e_strategy
 {
 	UNSET = -1,
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
 	COMPLEX
-};
+}				t_e_strategy;
 
 enum				e_operation
 {
@@ -42,11 +42,11 @@ enum				e_operation
 	RRR
 };
 
-struct s_settings
+typedef struct s_settings
 {
-	enum e_strategy	strategy;
+	t_e_strategy	strategy;
 	bool			bench;
-};
+}				t_settings;
 
 typedef struct s_num
 {
@@ -62,33 +62,33 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
-bool				ft_isdigit(int c);
-bool				ft_isspace(int c);
-bool				is_valid_input(char **argv);
-size_t				ft_strlen(const char *s);
-void				ft_putstr(const char *s);
-long long int		ft_atoi(const char *string);
-t_stack				*stack_init(void);
-t_num				*new_node(long long int num);
-void				stack_add_back(t_stack *stack, t_num *new);
-void				clear_stack(t_stack *stack);
-void				pa(t_stack *stack_a, t_stack *stack_b, int *stats);
-void				pb(t_stack *stack_b, t_stack *stack_a, int *stats);
-void				sa(t_stack *stack, int *stats);
-void				sb(t_stack *stack, int *stats);
-void				ss(t_stack *stack_a, t_stack *stack_b, int *stats);
-void				ra(t_stack *stack_a, int *stats);
-void				rb(t_stack *stack_b, int *stats);
-void				rr(t_stack *stack_a, t_stack *stack_b, int *stats);
-void				rra(t_stack *stack_a, int *stats);
-void				rrb(t_stack *stack_b, int *stats);
-void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
-struct s_settings	set_settings(int argc, char **argv, int *i);
-t_stack				*convert_to_lst(char **argv);
-void				push_swap(t_stack *stack, struct s_settings settings);
-void				solve_simple(t_stack *stack_a, int *stats);
-void				solve_medium(t_stack *stack_a, int *stats);
-void				solve_complex(t_stack *stack_a, int *stats);
-void				print_bench(float disorder, enum e_strategy strategy, int *stats);
+bool			ft_isdigit(int c);
+bool			ft_isspace(int c);
+bool			is_valid_input(char **argv);
+size_t			ft_strlen(const char *s);
+void			ft_putstr(const char *s);
+long long int	ft_atoi(const char *string);
+t_stack			*stack_init(void);
+t_num			*new_node(long long int num);
+void			stack_add_back(t_stack *stack, t_num *new);
+void			clear_stack(t_stack *stack);
+void			pa(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			pb(t_stack *stack_b, t_stack *stack_a, int *stats);
+void			sa(t_stack *stack, int *stats);
+void			sb(t_stack *stack, int *stats);
+void			ss(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			ra(t_stack *stack_a, int *stats);
+void			rb(t_stack *stack_b, int *stats);
+void			rr(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			rra(t_stack *stack_a, int *stats);
+void			rrb(t_stack *stack_b, int *stats);
+void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
+t_settings		set_settings(int argc, char **argv, int *i);
+t_stack			*convert_to_lst(char **argv);
+void			push_swap(t_stack *stack, t_settings settings);
+void			solve_simple(t_stack *stack_a, int *stats);
+void			solve_medium(t_stack *stack_a, int *stats);
+void			solve_complex(t_stack *stack_a, int *stats);
+void			print_bench(float disorder, t_e_strategy strategy, int *stats);
 
 #endif

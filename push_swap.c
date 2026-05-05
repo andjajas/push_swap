@@ -6,21 +6,21 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/05 19:00:01 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 20:06:00 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void				clear_array(int *array, size_t n);
-static enum e_strategy	get_strategy(float disorder);
-static float			calculate_disorder(t_stack *stack);
+static void			clear_array(int *array, size_t n);
+static t_e_strategy	get_strategy(float disorder);
+static float		calculate_disorder(t_stack *stack);
 
-void	push_swap(t_stack *stack, struct s_settings settings)
+void	push_swap(t_stack *stack, t_settings settings)
 {
 	int				stats[11];
 	float			disorder;
-	enum e_strategy strategy;
+	t_e_strategy	strategy;
 
 	clear_array(stats, sizeof(stats) / sizeof(int));
 	disorder = calculate_disorder(stack);
@@ -49,7 +49,7 @@ static void	clear_array(int *array, size_t n)
 	}
 }
 
-static enum e_strategy	get_strategy(float disorder)
+static t_e_strategy	get_strategy(float disorder)
 {
 	if (disorder < 0.2)
 		return (SIMPLE);
