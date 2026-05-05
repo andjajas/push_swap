@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/04 22:13:27 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/05 12:22:00 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_num	*new_node(long long int num)
 	t_num	*new;
 
 	new = malloc(sizeof(t_num));
-	if (!new)
+	if (new == NULL)
 		return (NULL);
 	new->num = num;
 	new->prev = NULL;
@@ -41,7 +41,7 @@ void	stack_add_back(t_stack *stack, t_num *new)
 {
 	t_num	*bottom;
 
-	if (!stack || !new)
+	if (stack == NULL || new == NULL)
 		return ;
 	if (stack->top == NULL)
 	{
@@ -67,7 +67,7 @@ void	clear_stack(t_stack *stack)
 	t_num	*now;
 	t_num	*next;
 
-	if (!stack)
+	if (stack == NULL)
 		return ;
 	if (stack->size <= 1)
 	{
