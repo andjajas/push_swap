@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/04 21:08:35 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 17:21:30 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 18:12:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static bool	check_duplicate(t_stack *stack, int number);
 static bool	out_of_bounds(long long int number);
 
-enum e_did_succeed	convert_to_lst(char **argv, t_stack *stack)
+t_did_succeed	convert_to_lst(char **argv, t_stack *stack)
 {
 	t_num			*node;
 

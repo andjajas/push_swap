@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 17:27:06 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 18:42:50 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 
 static void	raise_error(void);
 
-int	main(int argc, char **argv)
+int	main(int _, char **argv)
 {
-	int			i;
-	t_settings	settings;
-	t_stack		stack_a;
-	t_stack		stack_b;
+	t_set	settings;
+	t_stack	stack_a;
+	t_stack	stack_b;
 
-	i = 1;
 	stack_init(&stack_a);
 	stack_init(&stack_b);
-	settings = set_settings(argc, argv, &i);
-	argv += i;
+	argv++;
+	settings = set_settings(&argv);
 	if (is_valid_input(argv) == false
 		|| convert_to_lst(argv, &stack_a) == FAILED)
 	{
@@ -38,6 +36,7 @@ int	main(int argc, char **argv)
 	if (settings.bench == false)
 		printf("Bench was not enabled\n");
 	return (0);
+	(void)_;
 }
 
 static void	raise_error(void)

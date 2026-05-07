@@ -16,7 +16,7 @@ static void			clear_array(int *array, size_t n);
 static t_e_strategy	get_strategy(float disorder);
 static float		calculate_disorder(t_stack *stack);
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b, t_settings settings)
+void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 {
 	int				stats[11];
 	float			disorder;
