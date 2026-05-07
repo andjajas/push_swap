@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/05 20:23:02 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/07 17:27:30 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef enum e_strategy
+enum	e_did_succeed
 {
-	UNSET = -1,
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX
-}				t_e_strategy;
+	SUCCES = true,
+	FAILED = false
+};
 
-enum				e_operation
+enum	e_operation
 {
 	SA,
 	SB,
@@ -41,6 +38,15 @@ enum				e_operation
 	RRB,
 	RRR
 };
+
+typedef enum e_strategy
+{
+	UNSET = -1,
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}				t_e_strategy;
 
 typedef struct s_settings
 {
@@ -68,7 +74,7 @@ bool			is_valid_input(char **argv);
 size_t			ft_strlen(const char *s);
 void			ft_putstr(const char *s);
 long long int	ft_atoi(const char *string);
-t_stack			*stack_init(void);
+void			stack_init(t_stack *stack);
 t_num			*new_node(long long int num);
 void			stack_add_back(t_stack *stack, t_num *new);
 void			clear_stack(t_stack *stack);
@@ -84,11 +90,11 @@ void			rra(t_stack *stack_a, int *stats);
 void			rrb(t_stack *stack_b, int *stats);
 void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
 t_settings		set_settings(int argc, char **argv, int *i);
-t_stack			*convert_to_lst(char **argv);
-void			push_swap(t_stack *stack, t_settings settings);
-void			solve_simple(t_stack *stack_a, int *stats);
-void			solve_medium(t_stack *stack_a, int *stats);
-void			solve_complex(t_stack *stack_a, int *stats);
+enum e_did_succeed	convert_to_lst(char **argv, t_stack *stack);
+void			push_swap(t_stack *stack_a, t_stack *stack_b, t_settings settings);
+void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			print_bench(float disorder, t_e_strategy strategy, int *stats);
 
 #endif

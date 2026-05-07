@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/05 20:06:00 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 16:44:22 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ static void			clear_array(int *array, size_t n);
 static t_e_strategy	get_strategy(float disorder);
 static float		calculate_disorder(t_stack *stack);
 
-void	push_swap(t_stack *stack, t_settings settings)
+void	push_swap(t_stack *stack_a, t_stack *stack_b, t_settings settings)
 {
 	int				stats[11];
 	float			disorder;
 	t_e_strategy	strategy;
 
 	clear_array(stats, sizeof(stats) / sizeof(int));
-	disorder = calculate_disorder(stack);
+	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == UNSET)
 		settings.strategy = ADAPTIVE;
 	strategy = settings.strategy;
 	if (strategy == ADAPTIVE)
 		strategy = get_strategy(disorder);
 	if (strategy == SIMPLE)
-		solve_simple(stack, stats);
+		solve_simple(stack_a, stack_b, stats);
 	else if (strategy == MEDIUM)
-		solve_medium(stack, stats);
+		solve_medium(stack_a, stack_b, stats);
 	else if (strategy == COMPLEX)
-		solve_complex(stack, stats);
+		solve_complex(stack_a, stack_b, stats);
 	if (settings.bench == true)
 		print_bench(disorder, settings.strategy, stats);
 }
