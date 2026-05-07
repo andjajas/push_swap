@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 16:44:22 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 21:24:20 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ static float		calculate_disorder(t_stack *stack);
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 {
-	int				stats[11];
+	int				stat_array[11];
+	int				*stats;
 	float			disorder;
 	t_e_strategy	strategy;
 
-	clear_array(stats, sizeof(stats) / sizeof(int));
+	stats = stat_array;
+	if (settings.bench == true)
+		clear_array(stats, sizeof(stat_array) / sizeof(int));
+	else
+		stats = NULL;
 	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == UNSET)
 		settings.strategy = ADAPTIVE;

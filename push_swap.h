@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/07 18:26:01 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 22:04:45 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdarg.h>
 
 enum	e_operation
 {
@@ -96,5 +97,6 @@ void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			print_bench(float disorder, t_e_strategy strategy, int *stats);
+void			ft_printfcustom(const char *string, ...);
 
 #endif

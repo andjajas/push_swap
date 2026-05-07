@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/07 17:02:06 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 22:28:22 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ int		calc_rotations(t_num smallest_node);
 
 void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats) // work in progress
 {
-	t_stack	*stack_b;
 	t_num	*smallest_node;
 
-	stack_b = stack_init();
 	smallest node = find_smallest_node(stack_a);
 	calc_rotations(smallest_node);
-	free(stack_b);
 }
 
 t_num	*find_smallest_node(t_stack *stack_a)
