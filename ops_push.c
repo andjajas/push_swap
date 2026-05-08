@@ -19,8 +19,6 @@ void	pa(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	t_num	*node;
 
-	if (stack_a == NULL || stack_b == NULL)
-		return ;
 	node = stack_pop_top(stack_b);
 	if (node == NULL)
 		return ;
@@ -35,8 +33,6 @@ void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
 {
 	t_num	*node;
 
-	if (stack_a == NULL || stack_b == NULL)
-		return ;
 	node = stack_pop_top(stack_a);
 	if (node == NULL)
 		return ;
@@ -51,8 +47,6 @@ static t_num	*stack_pop_top(t_stack *stack)
 	t_num	*bottom;
 	t_num	*new_top;
 
-	if (stack->top == NULL)
-		return (NULL);
 	if (stack->top->next == stack->top)
 	{
 		node_pop = stack->top;
@@ -78,8 +72,6 @@ static void	stack_add_front(t_stack *stack, t_num *node)
 {
 	t_num	*bottom;
 
-	if (stack == NULL || node == NULL)
-		return ;
 	if (stack->top == NULL)
 	{
 		stack->top = node;

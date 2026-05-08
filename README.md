@@ -7,12 +7,16 @@ The goal of this project is to discover algorithmic complexity in a very concret
 Lorem Ipsum
 
 ## Algorithms
-Lorem Ipsum
+Handle trivial cases first<br>
+* Already sorted → do nothing<br>
+* 2 numbers → at most one sa<br>
+* 3 numbers → hardcode the logic (only 6 permutations)<br>
+* 5 numbers → push the lowest 2 values in b, sort remaining 3 with previous algorithm,
+push back the 2 values from b
 
 ## Resources
-
 #### Codam peers:
-* alkhan, bandrade, cpfister, eschloss, lblonk, nakhatoo, pride-ol, stehoffm
+* alkhan, bandrade, cpfister, eschloss, lblonk, nakhatoo, pride-ol, stehoffm, vvan-der<br>
 #### Algorithms:
 * [analysis (wikipedia)](https://en.wikipedia.org/wiki/Analysis_of_algorithms)<br>
 * [Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
