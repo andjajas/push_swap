@@ -6,52 +6,95 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/07 22:28:22 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 20:57:12 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_num	*find_smallest_node(t_stack *stack_a);
-int		calc_rotations(t_num smallest_node);
+int		find_index_smallest(t_stack *stack_a);
+void	rotate_smallest_to_top(t_stack	*stack_a);
 
-void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats) // work in progress
+// solve_simple is using the selection sort algorithm, still a work in progress...
+void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
-	t_num	*smallest_node;
-
-	smallest node = find_smallest_node(stack_a);
-	calc_rotations(smallest_node);
+	while (stack->size)
+		rotate_smallest_to_top(stack_a);
 }
 
-t_num	*find_smallest_node(t_stack *stack_a)
+void	rotate_smallest_to_top(t_stack	*stack)
+{
+	int	index_smallest;
+	int	rra_needed;
+
+	if ((index_smallest = find_index_smallest(stack)) <= stack->size / 2)
+	{
+		while (index_smallest)
+		{
+			ra(stack);
+			index_smallest--;
+		}
+	}
+	else
+	{
+		rra_needed = stack->size - index_smallest;
+		while (rra_needed)
+		{
+			rra(stack);
+			rra_needed--;
+		}
+	}
+}
+
+int	find_index_smallest(t_stack *stack_a)
 {
 	t_num			*current_node;
-	t_num			*smallest_node;
 	long long int	current_smallest_value;
 	int				i;
+	int				index;
 
-	current_node = stack_a->top->next;
-	smallest_node = stack_a->top;
+	current_node = stack_a->top;
 	current_smallest_value = stack_a->top->num;
-	i = 1;
+	i = 0;
+	index = i;
 	while (i < stack_a->size)
 	{
 		if (current_node->num < current_smallest_value)
 		{
 			current_smallest_value = current_node->num;
-			smallest_node = current_node;
+			index = i;
 		}
 		current_node = current_node->next;
 		i++;
 	}
-	return (smallest_node);
+	return (index);
 }
 
-int	calc_rotations(smallest_node)
-{
-	
-}
+// this function not needed when you just return the index, then calculate operations_needed from that
+// t_num	*find_smallest_node(t_stack *stack_a)
+// {
+// 	t_num			*current_node;
+// 	t_num			*smallest_node;
+// 	long long int	current_smallest_value;
+// 	int				i;
 
+// 	current_node = stack_a->top->next;
+// 	smallest_node = stack_a->top;
+// 	current_smallest_value = stack_a->top->num;
+// 	i = 1;
+// 	while (i < stack_a->size)
+// 	{
+// 		if (current_node->num < current_smallest_value)
+// 		{
+// 			current_smallest_value = current_node->num;
+// 			smallest_node = current_node;
+// 		}
+// 		current_node = current_node->next;
+// 		i++;
+// 	}
+// 	return (smallest_node);
+// }
+//
 // static void	assign_rank(t_stack *stack_a) // work in progress for medium & complex
 // {
 // 	int			current_rank;
@@ -59,7 +102,7 @@ int	calc_rotations(smallest_node)
 // 	t_num		*node_min_value;
 // 	t_num		*now;
 // 	int			i;
-
+//
 // 	current_rank = 0;
 // 	now = stack->top;
 // 	i = 0;

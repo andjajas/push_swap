@@ -6,42 +6,38 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 18:42:50 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 18:34:25 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-static void	raise_error(void);
-
-int	main(int _, char **argv)
+int	main(int argc, char **argv)
 {
 	t_set	settings;
 	t_stack	stack_a;
 	t_stack	stack_b;
+	int		i;
 
-	stack_init(&stack_a);
-	stack_init(&stack_b);
-	argv++;
-	settings = set_settings(&argv);
-	if (is_valid_input(argv) == false
-		|| convert_to_lst(argv, &stack_a) == FAILED)
+	(void)argc;
+	ft_bzero(&stack_a, sizeof(stack_a));
+	ft_bzero(&stack_b, sizeof(stack_b));
+	i = 1;
+	i += set_settings(argv + i, &settings);
+	if (is_valid_input(argv + i) == false
+		|| convert_to_lst(argv + i, &stack_a) == FAILED)
 	{
-		raise_error();
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 		return (1);
 	}
 	push_swap(&stack_a, &stack_b, settings);
 	clear_stack(&stack_a);
 	if (settings.bench == false)
-		printf("Bench was not enabled\n");
+	{
+		ft_putstr_fd("Bench was not enabled.\n", STDERR_FILENO);
+		return (2);
+	}
 	return (0);
-	(void)_;
-}
-
-static void	raise_error(void)
-{
-	ft_putstr("Error\n");
 }
 
 // Check if no arguments are given
