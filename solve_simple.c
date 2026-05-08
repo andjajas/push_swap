@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/07 22:28:22 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 15:28:13 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ t_num	*find_smallest_node(t_stack *stack_a)
 	return (smallest_node);
 }
 
-int	calc_rotations(smallest_node)
-{
-	
-}
+
 
 // static void	assign_rank(t_stack *stack_a) // work in progress for medium & complex
 // {
