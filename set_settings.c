@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 15:05:52 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 18:08:31 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 static bool			get_bench_flag(const char *argument);
 static t_e_strategy	get_strategy_flag(const char *argument);
 
-t_set	set_settings(char ***argv)
+int	set_settings(char **argv, t_set *settings)
 {
-	t_set	set;
 	bool	flagged;
+	int		i;
 
-	set.strategy = UNSET;
-	set.bench = false;
+	settings->strategy = UNSET;
+	settings->bench = false;
 	flagged = true;
-	while (**argv != NULL && flagged == true)
+	i = 0;
+	while (argv[i] != NULL && flagged == true)
 	{
 		flagged = false;
-		if (set.strategy == UNSET)
+		if (settings->strategy == UNSET)
 		{
-			set.strategy = get_strategy_flag(**argv);
-			if (set.strategy != UNSET)
+			settings->strategy = get_strategy_flag(argv[i]);
+			if (settings->strategy != UNSET)
 				flagged = true;
 		}
-		if (set.bench == false)
+		if (settings->bench == false)
 		{
-			set.bench = get_bench_flag(**argv);
-			if (set.bench == true)
+			settings->bench = get_bench_flag(argv[i]);
+			if (settings->bench == true)
 				flagged = true;
 		}
-		if (flagged == true)
-			(*argv)++;
+		i++;
 	}
-	return (set);
+	return (i - 1);
 }
 
 static bool	strmatch(const char *a, const char *b)

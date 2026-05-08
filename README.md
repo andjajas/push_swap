@@ -39,3 +39,13 @@ push back the 2 values from b
 * [Microsoft copilot](https://copilot.microsoft.com/) was used with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
+
+
+
+# THINGS WE NEED TO DO BEFORE HANDING IN
+remove the ft_putstr_fd statement at the end of the main file.
+In the makefile, remove the wildcard for source!
+
+## to-do
+In the makefile, `make` should check if anything has changed
+Check if the amount of numbers given is 1.
