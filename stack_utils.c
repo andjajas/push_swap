@@ -6,22 +6,16 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 17:13:56 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/07 17:23:26 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_init(void)
+void	stack_init(t_stack *stack)
 {
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (stack == NULL)
-		return (NULL);
 	stack->top = NULL;
 	stack->size = 0;
-	return (stack);
 }
 
 t_num	*new_node(long long int num)
@@ -68,10 +62,7 @@ void	clear_stack(t_stack *stack)
 	int		i;
 
 	if (stack == NULL || stack->top == NULL)
-	{
-		free(stack);
 		return ;
-	}
 	now = stack->top;
 	i = 0;
 	while (i < stack->size)
@@ -81,5 +72,4 @@ void	clear_stack(t_stack *stack)
 		now = next;
 		i++;
 	}
-	free(stack);
 }

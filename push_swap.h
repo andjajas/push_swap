@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/05 20:23:02 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/07 22:04:45 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdarg.h>
 
-typedef enum e_strategy
-{
-	UNSET = -1,
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX
-}				t_e_strategy;
-
-enum				e_operation
+enum	e_operation
 {
 	SA,
 	SB,
@@ -42,11 +34,26 @@ enum				e_operation
 	RRR
 };
 
+typedef enum e_did_succeed
+{
+	SUCCES = true,
+	FAILED = false
+}	t_did_succeed;
+
+typedef enum e_strategy
+{
+	UNSET = -1,
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_e_strategy;
+
 typedef struct s_settings
 {
 	t_e_strategy	strategy;
 	bool			bench;
-}				t_settings;
+}	t_set;
 
 typedef struct s_num
 {
@@ -54,13 +61,13 @@ typedef struct s_num
 	unsigned int	rank;
 	struct s_num	*prev;
 	struct s_num	*next;
-}					t_num;
+}	t_num;
 
 typedef struct s_stack
 {
 	t_num			*top;
 	int				size;
-}					t_stack;
+}	t_stack;
 
 bool			ft_isdigit(int c);
 bool			ft_isspace(int c);
@@ -68,7 +75,7 @@ bool			is_valid_input(char **argv);
 size_t			ft_strlen(const char *s);
 void			ft_putstr(const char *s);
 long long int	ft_atoi(const char *string);
-t_stack			*stack_init(void);
+void			stack_init(t_stack *stack);
 t_num			*new_node(long long int num);
 void			stack_add_back(t_stack *stack, t_num *new);
 void			clear_stack(t_stack *stack);
@@ -83,12 +90,13 @@ void			rr(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			rra(t_stack *stack_a, int *stats);
 void			rrb(t_stack *stack_b, int *stats);
 void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
-t_settings		set_settings(int argc, char **argv, int *i);
-t_stack			*convert_to_lst(char **argv);
-void			push_swap(t_stack *stack, t_settings settings);
-void			solve_simple(t_stack *stack_a, int *stats);
-void			solve_medium(t_stack *stack_a, int *stats);
-void			solve_complex(t_stack *stack_a, int *stats);
+t_set			set_settings(char ***argv);
+t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
+void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
+void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			print_bench(float disorder, t_e_strategy strategy, int *stats);
+void			ft_printfcustom(const char *string, ...);
 
 #endif

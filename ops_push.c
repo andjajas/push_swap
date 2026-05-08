@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 15:47:09 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 19:44:49 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 12:03:57 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	pa(t_stack *stack_a, t_stack *stack_b, int *stats)
 	if (node == NULL)
 		return ;
 	stack_add_front(stack_a, node);
-	write(1, "pa\n", 3);
-	stats[PA]++;
+	if (stats == NULL)
+		write(1, "pa\n", 3);
+	else
+		stats[PA]++;
 }
 
 void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)

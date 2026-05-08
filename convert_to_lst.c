@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/04 21:08:35 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/05 12:47:12 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/07 18:12:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,25 @@
 static bool	check_duplicate(t_stack *stack, int number);
 static bool	out_of_bounds(long long int number);
 
-t_stack	*convert_to_lst(char **argv)
+t_did_succeed	convert_to_lst(char **argv, t_stack *stack)
 {
 	t_num			*node;
-	t_stack			*stack_a;
 
-	stack_a = stack_init();
-	if (stack_a == NULL)
-		return (NULL);
 	while (*argv != NULL)
 	{
 		node = new_node(ft_atoi(*argv));
 		if (node == NULL
 			|| out_of_bounds(node->num) == true
-			|| check_duplicate(stack_a, node->num) == true)
+			|| check_duplicate(stack, node->num) == true)
 		{
 			free(node);
-			clear_stack(stack_a);
-			return (NULL);
+			clear_stack(stack);
+			return (FAILED);
 		}
-		stack_add_back(stack_a, node);
+		stack_add_back(stack, node);
 		argv++;
 	}
-	return (stack_a);
+	return (SUCCES);
 }
 
 static bool	check_duplicate(t_stack *stack, int number)
