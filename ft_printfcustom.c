@@ -6,16 +6,14 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 22:14:14 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 14:57:18 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void			ft_put_disorder(float disorder);
-static void			ft_put_strategy(t_e_strategy strategy);
-static void			ft_put_uint(unsigned int n);
-static int			find(const char *string, char c);
+static int	find(const char *string, char c);
+static void	print_variable(char identifier, va_list args);
 
 void	ft_printfcustom(const char *string, ...)
 {
@@ -31,55 +29,22 @@ void	ft_printfcustom(const char *string, ...)
 		if (*string == '\0')
 			break ;
 		string++;
-		if (*string == 's')
-			ft_put_strategy(va_arg(args, int));
-		else if (*string == 'd')
-			ft_put_disorder(va_arg(args, t_e_strategy));
-		else if (*string == 'u')
-			ft_put_uint(va_arg(args, unsigned int));
+		print_variable(*string, args);
 		string++;
 	}
 	va_end(args);
 }
 
-static void	ft_put_disorder(float disorder)
+static void	print_variable(char identifier, va_list args)
 {
-	(void)disorder;
-}
-
-static void	ft_put_strategy(t_e_strategy strategy)
-{
-	if (strategy == ADAPTIVE)
-		ft_putstr("Adaptive");
-	else if (strategy == SIMPLE)
-		ft_putstr("Simple");
-	else if (strategy == MEDIUM)
-		ft_putstr("Medium");
-	else if (strategy == COMPLEX)
-		ft_putstr("Complex");
-}
-
-static void	ft_put_uint(unsigned int n)
-{
-	unsigned int	int_len;
-	unsigned int	n_copy;
-	char			number[11];
-
-	n_copy = n;
-	int_len = 1;
-	while (n_copy >= 10)
-	{
-		n_copy /= 10;
-		int_len++;
-	}
-	number[int_len] = '\0';
-	while (int_len > 0)
-	{
-		int_len--;
-		number[int_len] = '0' + n % 10;
-		n /= 10;
-	}
-	ft_putstr(number);
+	if (identifier == 's')
+		ft_put_strategy(va_arg(args, t_e_strategy), va_arg(args, double));
+	else if (identifier == 'd')
+		ft_put_disorder(va_arg(args, double));
+	else if (identifier == 'u')
+		ft_put_uint(va_arg(args, unsigned int));
+	else
+		ft_putstr("\n An error occured. ft_printfcustom was used wrong.\n");
 }
 
 static int	find(const char *string, char c)

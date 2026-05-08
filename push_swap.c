@@ -6,14 +6,13 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 12:02:15 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 13:42:23 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void			clear_array(int *array, size_t n);
-static t_e_strategy	get_strategy(float disorder);
 static float		calculate_disorder(t_stack *stack);
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
@@ -43,6 +42,16 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 		print_bench(disorder, settings.strategy, stats);
 }
 
+t_e_strategy	get_strategy(float disorder)
+{
+	if (disorder < 0.2)
+		return (SIMPLE);
+	else if (disorder < 0.5)
+		return (MEDIUM);
+	else
+		return (COMPLEX);
+}
+
 static void	clear_array(int *array, size_t n)
 {
 	while (n > 0)
@@ -51,16 +60,6 @@ static void	clear_array(int *array, size_t n)
 		array++;
 		n--;
 	}
-}
-
-static t_e_strategy	get_strategy(float disorder)
-{
-	if (disorder < 0.2)
-		return (SIMPLE);
-	else if (disorder < 0.5)
-		return (MEDIUM);
-	else
-		return (COMPLEX);
 }
 
 static float	calculate_disorder(t_stack *stack)

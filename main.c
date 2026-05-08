@@ -6,14 +6,12 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 18:42:50 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 11:09:18 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-static void	raise_error(void);
 
 int	main(int _, char **argv)
 {
@@ -28,7 +26,7 @@ int	main(int _, char **argv)
 	if (is_valid_input(argv) == false
 		|| convert_to_lst(argv, &stack_a) == FAILED)
 	{
-		raise_error();
+		ft_putstr("Error\n");
 		return (1);
 	}
 	push_swap(&stack_a, &stack_b, settings);
@@ -37,11 +35,6 @@ int	main(int _, char **argv)
 		printf("Bench was not enabled\n");
 	return (0);
 	(void)_;
-}
-
-static void	raise_error(void)
-{
-	ft_putstr("Error\n");
 }
 
 // Check if no arguments are given

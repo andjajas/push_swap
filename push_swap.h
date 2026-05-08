@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/07 22:04:45 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 14:59:29 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,20 @@ typedef struct s_stack
 	int				size;
 }	t_stack;
 
-bool			ft_isdigit(int c);
-bool			ft_isspace(int c);
+// used in main
 bool			is_valid_input(char **argv);
-size_t			ft_strlen(const char *s);
-void			ft_putstr(const char *s);
-long long int	ft_atoi(const char *string);
-void			stack_init(t_stack *stack);
-t_num			*new_node(long long int num);
-void			stack_add_back(t_stack *stack, t_num *new);
-void			clear_stack(t_stack *stack);
+t_set			set_settings(char ***argv);
+t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
+void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
+
+// used in push_swap
+void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			print_bench(float disorder, t_e_strategy strategy, int *stats);
+void			ft_printfcustom(const char *string, ...);
+
+// operation functions
 void			pa(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			pb(t_stack *stack_b, t_stack *stack_a, int *stats);
 void			sa(t_stack *stack, int *stats);
@@ -90,13 +94,26 @@ void			rr(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			rra(t_stack *stack_a, int *stats);
 void			rrb(t_stack *stack_b, int *stats);
 void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
-t_set			set_settings(char ***argv);
-t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
-void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
-void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			print_bench(float disorder, t_e_strategy strategy, int *stats);
-void			ft_printfcustom(const char *string, ...);
+
+// random function used in push_swap and ft_printfcustom_utils
+t_e_strategy	get_strategy(float disorder);
+
+// stack (linked-list) functions
+void			stack_init(t_stack *stack);
+t_num			*new_node(long long int num);
+void			stack_add_back(t_stack *stack, t_num *new);
+void			clear_stack(t_stack *stack);
+
+// libft-like functions
+bool			ft_isdigit(int c);
+bool			ft_isspace(int c);
+size_t			ft_strlen(const char *s);
+void			ft_putstr(const char *s);
+long long int	ft_atoi(const char *string);
+
+// ft_printfcustom only functions
+void			ft_put_strategy(t_e_strategy strategy, float disorder);
+void			ft_put_disorder(float disorder);
+void			ft_put_uint(unsigned int n);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 18:27:54 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 15:05:52 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool			get_bench(const char *argument);
-static t_e_strategy	get_strategy(const char *argument);
+static bool			get_bench_flag(const char *argument);
+static t_e_strategy	get_strategy_flag(const char *argument);
 
 t_set	set_settings(char ***argv)
 {
@@ -28,13 +28,13 @@ t_set	set_settings(char ***argv)
 		flagged = false;
 		if (set.strategy == UNSET)
 		{
-			set.strategy = get_strategy(**argv);
+			set.strategy = get_strategy_flag(**argv);
 			if (set.strategy != UNSET)
 				flagged = true;
 		}
 		if (set.bench == false)
 		{
-			set.bench = get_bench(**argv);
+			set.bench = get_bench_flag(**argv);
 			if (set.bench == true)
 				flagged = true;
 		}
@@ -56,7 +56,7 @@ static bool	strmatch(const char *a, const char *b)
 	return (true);
 }
 
-static bool	get_bench(const char *argument)
+static bool	get_bench_flag(const char *argument)
 {
 	if (strmatch(argument, "--bench") == true)
 		return (true);
@@ -64,7 +64,7 @@ static bool	get_bench(const char *argument)
 		return (false);
 }
 
-static t_e_strategy	get_strategy(const char *argument)
+static t_e_strategy	get_strategy_flag(const char *argument)
 {
 	if (strmatch(argument, "--adaptive") == true)
 		return (ADAPTIVE);
