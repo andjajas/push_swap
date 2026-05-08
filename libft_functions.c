@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/01 12:40:07 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/04 21:34:39 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 18:33:35 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,23 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr(const char *s)
+void	ft_putstr_fd(const char *s, int fd)
 {
-	write(1, s, ft_strlen(s));
+	write(fd, s, ft_strlen(s));
+}
+
+void	ft_bzero(void *memory, size_t n)
+{
+	unsigned char	*byte;
+	size_t			i;
+
+	byte = (unsigned char *) memory;
+	i = 0;
+	while (i < n)
+	{
+		byte[i] = 0;
+		i++;
+	}
 }
 
 long long int	ft_atoi(const char *string)

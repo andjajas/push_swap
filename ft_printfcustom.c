@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 14:57:18 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 18:20:13 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static void	print_variable(char identifier, va_list args)
 	else if (identifier == 'u')
 		ft_put_uint(va_arg(args, unsigned int));
 	else
-		ft_putstr("\n An error occured. ft_printfcustom was used wrong.\n");
+		ft_putstr_fd(
+			"\n An error occured. ft_printfcustom was used wrong.\n",
+			STDERR_FILENO);
 }
 
 static int	find(const char *string, char c)

@@ -6,17 +6,11 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/08 14:47:04 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/08 18:35:53 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	stack_init(t_stack *stack)
-{
-	stack->top = NULL;
-	stack->size = 0;
-}
 
 t_num	*new_node(long long int num)
 {
@@ -72,5 +66,5 @@ void	clear_stack(t_stack *stack)
 		now = next;
 		i++;
 	}
-	stack_init(stack);
+	ft_bzero(&stack, sizeof(t_stack));
 }
