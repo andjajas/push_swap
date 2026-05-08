@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/07 21:24:20 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/08 12:02:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 	t_e_strategy	strategy;
 
 	stats = stat_array;
-	if (settings.bench == true)
-		clear_array(stats, sizeof(stat_array) / sizeof(int));
-	else
+	clear_array(stats, sizeof(stat_array) / sizeof(int));
+	if (settings.bench == false)
 		stats = NULL;
 	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == UNSET)
