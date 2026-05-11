@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/08 18:44:13 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/11 15:49:53 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ void	clear_stack(t_stack *stack)
 		now = next;
 		i++;
 	}
-	ft_bzero(&stack, sizeof(t_stack));
+	ft_bzero(stack, sizeof(t_stack));
 }

@@ -6,20 +6,20 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/11 15:15:37 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/11 20:09:56 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int		find_index_smallest(t_stack *stack_a);
-void	rotate_smallest_to_top(t_stack	*stack_a);
+void	rotate_smallest_to_top(t_stack	*stack, int *stats);
 
 void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	while (stack_a->size)
 	{
-		rotate_smallest_to_top(stack_a);
+		rotate_smallest_to_top(stack_a, stats);
 		pb(stack_b, stack_a, stats);
 	}
 	while (stack_b->size)
