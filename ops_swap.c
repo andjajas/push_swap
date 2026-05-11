@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 17:48:30 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 17:30:13 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/11 15:21:45 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	sa(t_stack *stack_a, int *stats)
 	if (stack_a->top == NULL || stack_a->top->next == stack_a->top)
 		return ;
 	swap(stack_a);
-	write(1, "sa\n", 3);
-	stats[SA]++;
+	if (stats == NULL)
+		write(1, "sa\n", 3);
+	else
+		stats[SA]++;
 }
 
 void	sb(t_stack *stack_b, int *stats)
@@ -28,8 +30,10 @@ void	sb(t_stack *stack_b, int *stats)
 	if (stack_b->top == NULL || stack_b->top->next == stack_b->top)
 		return ;
 	swap(stack_b);
-	write(1, "sb\n", 3);
-	stats[SB]++;
+	if (stats == NULL)
+		write(1, "sb\n", 3);
+	else
+		stats[SB]++;
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b, int *stats)
@@ -40,8 +44,10 @@ void	ss(t_stack *stack_a, t_stack *stack_b, int *stats)
 		return ;
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
-	stats[SS]++;
+	if (stats == NULL)
+		write(1, "ss\n", 3);
+	else
+		stats[SS]++;
 }
 
 static void	swap(t_stack *stack)

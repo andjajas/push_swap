@@ -37,8 +37,10 @@ void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
 	if (node == NULL)
 		return ;
 	stack_add_front(stack_b, node);
-	write(1, "pb\n", 3);
-	stats[PB]++;
+	if (stats == NULL)
+		write(1, "pb\n", 3);
+	else
+		stats[PB]++;
 }
 
 static t_num	*stack_pop_top(t_stack *stack)

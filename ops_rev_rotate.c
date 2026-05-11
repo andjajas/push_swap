@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:14:13 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/05 19:44:56 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/11 15:19:21 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	rra(t_stack *stack_a, int *stats)
 	if (!stack_a || !stack_a->top || stack_a->top->next == stack_a->top)
 		return ;
 	stack_a->top = stack_a->top->prev;
-	write(1, "rra\n", 4);
-	stats[RRA]++;
+	if (stats == NULL)
+		write(1, "rra\n", 4);
+	else
+		stats[RRA]++;
 }
 
 void	rrb(t_stack *stack_b, int *stats)
@@ -26,8 +28,10 @@ void	rrb(t_stack *stack_b, int *stats)
 	if (!stack_b || !stack_b->top || stack_b->top->next == stack_b->top)
 		return ;
 	stack_b->top = stack_b->top->prev;
-	write(1, "rrb\n", 4);
-	stats[RRB]++;
+	if (stats == NULL)
+		write(1, "rrb\n", 4);
+	else
+		stats[RRB]++;
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b, int *stats)
@@ -38,6 +42,8 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, int *stats)
 		return ;
 	stack_a->top = stack_a->top->prev;
 	stack_b->top = stack_b->top->prev;
-	write(1, "rrr\n", 4);
-	stats[RRR]++;
+	if (stats == NULL)
+		write(1, "rrr\n", 4);
+	else
+		stats[RRR]++;
 }

@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/08 20:57:12 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/11 15:15:37 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,39 @@
 int		find_index_smallest(t_stack *stack_a);
 void	rotate_smallest_to_top(t_stack	*stack_a);
 
-// solve_simple is using the selection sort algorithm, still a work in progress...
 void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
-	while (stack->size)
+	while (stack_a->size)
+	{
 		rotate_smallest_to_top(stack_a);
+		pb(stack_b, stack_a, stats);
+	}
+	while (stack_b->size)
+		pa(stack_a, stack_b, stats);
 }
 
-void	rotate_smallest_to_top(t_stack	*stack)
+void	rotate_smallest_to_top(t_stack	*stack, int *stats)
 {
-	int	index_smallest;
+	int	ra_needed;
 	int	rra_needed;
 
-	if ((index_smallest = find_index_smallest(stack)) <= stack->size / 2)
+	ra_needed = find_index_smallest(stack);
+	if (ra_needed == 0)
+		return ;
+	if ((ra_needed) <= stack->size / 2)
 	{
-		while (index_smallest)
+		while (ra_needed)
 		{
-			ra(stack);
-			index_smallest--;
+			ra(stack, stats);
+			ra_needed--;
 		}
 	}
 	else
 	{
-		rra_needed = stack->size - index_smallest;
+		rra_needed = stack->size - ra_needed;
 		while (rra_needed)
 		{
-			rra(stack);
+			rra(stack, stats);
 			rra_needed--;
 		}
 	}
@@ -70,57 +77,7 @@ int	find_index_smallest(t_stack *stack_a)
 	return (index);
 }
 
-// this function not needed when you just return the index, then calculate operations_needed from that
-// t_num	*find_smallest_node(t_stack *stack_a)
-// {
-// 	t_num			*current_node;
-// 	t_num			*smallest_node;
-// 	long long int	current_smallest_value;
-// 	int				i;
-
-// 	current_node = stack_a->top->next;
-// 	smallest_node = stack_a->top;
-// 	current_smallest_value = stack_a->top->num;
-// 	i = 1;
-// 	while (i < stack_a->size)
-// 	{
-// 		if (current_node->num < current_smallest_value)
-// 		{
-// 			current_smallest_value = current_node->num;
-// 			smallest_node = current_node;
-// 		}
-// 		current_node = current_node->next;
-// 		i++;
-// 	}
-// 	return (smallest_node);
-// }
-//
-// static void	assign_rank(t_stack *stack_a) // work in progress for medium & complex
-// {
-// 	int			current_rank;
-// 	long long	min_value;
-// 	t_num		*node_min_value;
-// 	t_num		*now;
-// 	int			i;
-//
-// 	current_rank = 0;
-// 	now = stack->top;
-// 	i = 0;
-// 	while (i < stack->size)
-// 	{
-// 		if (now->num > now->next->num)
-// 			min_value = now->num;
-// 		else
-// 			min_value = now->next->num;
-// 		now = now->next;
-// 		i++;
-// 	}
-// }
-// TIP from many other peer groups: we need a hardcoded situation for 3- and 5- int string inputs
-// add it for the input handling, so you hit the benchmark performance during evaluation!
-// we also can make an option that makes the LIVE coding session much easier during evaluation!
-// our solve simple here is SELECTION SORT
-// selection sort algorithm;
+// This solve_simple uses: SELECTION SORT algorithm;
 // assign ranks (how?)... but not needed in selection sort
 // find the smallest value in stack_a (how?)...
 // define a variable current_smallest_value, we will search for it.
