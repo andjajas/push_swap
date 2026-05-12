@@ -6,11 +6,13 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/12 13:09:58 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 13:46:03 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rotate_smallest_to_top(t_stack	*stack, int *stats);
 
 void	solve_input_is_two(t_stack *stack_a, int *stats)
 {

@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/12 11:39:38 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 13:46:13 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 		stats[PA] = 1000;
 }
 
-void	convert_num_to_rank()
+// void	convert_num_to_rank()
 // this function maybe needed for medium or complex algorithms?
 // t_num	*find_smallest_node(t_stack *stack_a)
 // {

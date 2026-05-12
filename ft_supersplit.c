@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/11 15:32:21 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/11 20:57:55 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 14:02:37 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**ft_supersplit(const char **input, char c)
 		input++;
 	}
 	if (i > split_amount)
-		ft_putstr("PROBLEM IN FT_SUPERSPLIT\n");
+		ft_putstr_err("PROBLEM IN FT_SUPERSPLIT\n");
 	return (result);
 }
 

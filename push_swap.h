@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/11 20:15:59 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 14:29:01 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void			rr(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			rra(t_stack *stack_a, int *stats);
 void			rrb(t_stack *stack_b, int *stats);
 void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
+void			ops_put_operation(enum e_operation operation, int *stats);
 
 // random function used in push_swap and ft_printfcustom_utils
 t_e_strategy	get_strategy(float disorder);
@@ -112,8 +113,8 @@ void			clear_stack(t_stack *stack);
 bool			ft_isdigit(int c);
 bool			ft_isspace(int c);
 size_t			ft_strlen(const char *s);
-void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
+void			ft_putstr_err(const char *s);
 void			ft_bzero(void *memory, size_t n);
 long long int	ft_atoi(const char *string);
 int				find_index(const char *string, char c);

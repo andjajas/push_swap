@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 18:34:25 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 14:03:32 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	main(int argc, char **argv)
 	if (is_valid_input(argv + i) == false
 		|| convert_to_lst(argv + i, &stack_a) == FAILED)
 	{
-		ft_putstr_fd("Error\n", STDERR_FILENO);
+		ft_putstr_err("Error\n");
 		return (1);
 	}
 	push_swap(&stack_a, &stack_b, settings);
 	clear_stack(&stack_a);
 	if (settings.bench == false)
 	{
-		ft_putstr_fd("Bench was not enabled.\n", STDERR_FILENO);
+		ft_putstr("Bench was not enabled.\n");
 		return (2);
 	}
 	return (0);

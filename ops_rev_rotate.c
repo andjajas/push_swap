@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:14:13 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/11 15:19:21 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 14:36:35 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	rra(t_stack *stack_a, int *stats)
 	if (!stack_a || !stack_a->top || stack_a->top->next == stack_a->top)
 		return ;
 	stack_a->top = stack_a->top->prev;
-	if (stats == NULL)
-		write(1, "rra\n", 4);
-	else
-		stats[RRA]++;
+	ops_put_operation(RRA, stats);
 }
 
 void	rrb(t_stack *stack_b, int *stats)
@@ -28,10 +25,7 @@ void	rrb(t_stack *stack_b, int *stats)
 	if (!stack_b || !stack_b->top || stack_b->top->next == stack_b->top)
 		return ;
 	stack_b->top = stack_b->top->prev;
-	if (stats == NULL)
-		write(1, "rrb\n", 4);
-	else
-		stats[RRB]++;
+	ops_put_operation(RRB, stats);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b, int *stats)
@@ -42,8 +36,5 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, int *stats)
 		return ;
 	stack_a->top = stack_a->top->prev;
 	stack_b->top = stack_b->top->prev;
-	if (stats == NULL)
-		write(1, "rrr\n", 4);
-	else
-		stats[RRR]++;
+	ops_put_operation(RRR, stats);
 }

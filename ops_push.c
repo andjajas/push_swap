@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 15:47:09 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/08 12:03:57 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 14:35:25 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b, int *stats)
 	if (node == NULL)
 		return ;
 	stack_add_front(stack_a, node);
-	if (stats == NULL)
-		write(1, "pa\n", 3);
-	else
-		stats[PA]++;
+	ops_put_operation(PA, stats);
 }
 
 void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
@@ -37,10 +34,7 @@ void	pb(t_stack *stack_b, t_stack *stack_a, int *stats)
 	if (node == NULL)
 		return ;
 	stack_add_front(stack_b, node);
-	if (stats == NULL)
-		write(1, "pb\n", 3);
-	else
-		stats[PB]++;
+	ops_put_operation(PB, stats);
 }
 
 static t_num	*stack_pop_top(t_stack *stack)

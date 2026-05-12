@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/03 17:48:30 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/11 15:21:45 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 14:35:08 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	sa(t_stack *stack_a, int *stats)
 	if (stack_a->top == NULL || stack_a->top->next == stack_a->top)
 		return ;
 	swap(stack_a);
-	if (stats == NULL)
-		write(1, "sa\n", 3);
-	else
-		stats[SA]++;
+	ops_put_operation(SA, stats);
 }
 
 void	sb(t_stack *stack_b, int *stats)
@@ -30,10 +27,7 @@ void	sb(t_stack *stack_b, int *stats)
 	if (stack_b->top == NULL || stack_b->top->next == stack_b->top)
 		return ;
 	swap(stack_b);
-	if (stats == NULL)
-		write(1, "sb\n", 3);
-	else
-		stats[SB]++;
+	ops_put_operation(SB, stats);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b, int *stats)
@@ -44,10 +38,7 @@ void	ss(t_stack *stack_a, t_stack *stack_b, int *stats)
 		return ;
 	swap(stack_a);
 	swap(stack_b);
-	if (stats == NULL)
-		write(1, "ss\n", 3);
-	else
-		stats[SS]++;
+	ops_put_operation(SS, stats);
 }
 
 static void	swap(t_stack *stack)
