@@ -6,16 +6,11 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:05:43 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 20:52:40 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_put_disorder(float disorder)
-{
-	(void)disorder;
-}
 
 void	ft_put_strategy(t_e_strategy strategy, float disorder)
 {
@@ -60,4 +55,19 @@ void	ft_put_uint(unsigned int n)
 		n /= 10;
 	}
 	ft_putstr(number);
+}
+
+void	ft_put_disorder(float disorder)
+{
+	if ((unsigned int)(disorder * 100000) % 10 >= 5)
+		disorder += 0.0001;
+	ft_putstr("%");
+	disorder *= 100;
+	ft_put_uint((unsigned int) disorder);
+	disorder -= (unsigned int) disorder;
+	disorder *= 100;
+	ft_putstr(".");
+	if (disorder < 10 || disorder == 0)
+		ft_putstr("0");
+	ft_put_uint((unsigned int) disorder);
 }

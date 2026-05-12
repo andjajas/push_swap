@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 18:34:41 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 19:47:10 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static float	calculate_disorder(t_stack *stack)
 	t_num	*this_node;
 	t_num	*next_node;
 
+	if (stack->size < 2)
+		return ((float) 0);
 	total_pairs = stack->size - 1;
 	mistakes = 0;
 	i = 0;

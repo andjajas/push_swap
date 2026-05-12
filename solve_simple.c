@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/12 13:15:01 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 21:01:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	rotate_smallest_to_top(t_stack	*stack, int *stats)
 
 int	find_index_smallest(t_stack *stack_a)
 {
-	t_num			*current_node;
+	t_num		*current_node;
 	long long	current_smallest_value;
-	int				i;
-	int				index;
+	int			i;
+	int			index;
 
 	current_node = stack_a->top;
 	current_smallest_value = stack_a->top->num;

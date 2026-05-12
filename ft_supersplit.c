@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/11 15:32:21 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:02:37 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 21:02:28 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static size_t	ft_split(char **dest, const char *s, char c)
 
 static size_t	count_supersplits(const char **array, char c)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (*array != NULL)

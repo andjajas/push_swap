@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:02:10 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 21:01:29 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ static void	print_variable(char identifier, va_list args)
 		ft_putstr_err(
 			"\n An error occured. ft_printfcustom was used wrong.\n");
 }
-

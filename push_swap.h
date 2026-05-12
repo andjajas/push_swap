@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/12 14:29:01 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 21:02:07 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_settings
 
 typedef struct s_num
 {
-	long long	num;
+	long long		num;
 	unsigned int	rank;
 	struct s_num	*prev;
 	struct s_num	*next;
@@ -116,7 +116,7 @@ size_t			ft_strlen(const char *s);
 void			ft_putstr(const char *s);
 void			ft_putstr_err(const char *s);
 void			ft_bzero(void *memory, size_t n);
-long long	ft_atoi(const char *string);
+long long		ft_atoi(const char *string);
 int				find_index(const char *string, char c);
 
 // ft_printfcustom only functions

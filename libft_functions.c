@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/01 12:40:07 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:01:08 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 21:00:59 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	ft_bzero(void *memory, size_t n)
 
 long long	ft_atoi(const char *string)
 {
-	size_t				i;
-	long long		number;
-	bool				isnegative;
+	size_t		i;
+	long long	number;
+	bool		isnegative;
 
 	i = 0;
 	number = 0;
