@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/11 16:42:37 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 10:35:24 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,43 @@ void	solve_input_is_two(t_stack *stack_a, int *stats)
 // work in progress:
 void	solve_input_is_three(t_stack *stack_a, int *stats)
 {
-	t_num	*top;
-	t_num	*middle;
-	t_num	*bottom;
+	long long int	top;
+	long long int	middle;
+	long long int	bottom;
 
 	top = stack_a->top->num;
 	middle = stack_a->top->next->num;
 	bottom = stack_a->top->prev->num;
-	if (top > middle && )
+	if (top > middle && middle < bottom && top < bottom) //213
+		sa(stack_a, stats);
+	else if (top < middle && middle > bottom && top > bottom) // 231
+		rra(stack_a, stats);
+	else if (top > middle && middle < bottom && top > bottom) // 312
+		ra(stack_a, stats);
+	else if (top < middle && middle > bottom && top < bottom) // 132
+	{		
+		sa(stack_a, stats);
+		ra(stack_a, stats);
+	}
+	else if (top > middle && middle > bottom && top > bottom) // 321
+	{
+		ra(stack_a, stats);
+		sa(stack_a, stats);
+	}
 }
+
+void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
+{
+	while (stack_a->size > 3)
+	{
+		rotate_smallest_to_top(stack_a, stats);
+		pb(stack_b, stack_a, stats);
+	}
+	solve_input_is_three(stack_a, stats);
+	while (stack_b->size > 0)
+		pa(stack_a, stack_b, stats);
+}
+
 /*
 we can use extra variables for clarity or keep it minimal with these comparisons:
 compare top with middle, middle with bottom, top with bottom.
