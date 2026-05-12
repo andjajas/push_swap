@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/12 15:07:20 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 21:16:48 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,95 @@
 
 void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
-	(void)stack_a;
-	(void)stack_b;
-	if (stats != NULL)
-		stats[PA] = 1000;
+	int	bit_position;
+
+	assign_rank(stack_a);
+	while()
+	{
+		while()
+		{
+			
+		}
+	}
 }
 
-void	rank_num(t_stack *stack_a)
+int	*fill_for_assign_rank(t_stack *stack_a)
 {
-	int	*nums = malloc(sizeof(int))
+	t_num	*now;
+	int		*nums;
+	int		i;
+
+	nums = malloc(sizeof(int) * stack_a->size);
+	if (nums == NULL)
+		return (NULL);
+	now = stack_a->top;
+	i = 0;
+	while (i < stack_a->size)
+	{
+		nums[i] = (int)now->num;
+		now = now->next;
+		i++;
+	}
+	return (nums);
 }
 
+int	*sort_for_assign_rank(t_stack *stack_a)
+{
+	int	*nums;
+	int	tmp;
+	int	i;
+	int	j;
+
+	nums = fill_for_assign_rank(stack_a);
+	if (nums == NULL)
+		return (NULL);
+	i = 0;
+	while (i < stack_a->size - 1)
+	{
+		j = 0;
+		while (j < stack_a->size - 1)
+		{
+			if (nums[j] > nums[j + 1])
+			{
+				tmp = nums[j];
+				nums[j] = nums[j + 1];
+				nums[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (nums);
+}
+
+void	assign_rank(t_stack *stack_a)
+{
+	t_num	*now;
+	int		*nums;
+	int		i;
+	int		j;
+
+	nums = sort_for_assign_rank(stack_a);
+	if (nums == NULL)
+		return ;
+	i = 0;
+	while (i < stack_a->size)
+	{
+		now = stack_a->top;
+		j = 0;
+		while (j < stack_a->size)
+		{
+			if (now->num == nums[i])
+				now->rank = i;
+			now = now->next;
+			j++;
+		}
+		i++;
+	}
+	free(nums);
+}
+
+// add to README vincent en thijn
 // void	convert_num_to_rank()
 // this function maybe needed for medium or complex algorithms?
 // t_num	*find_smallest_node(t_stack *stack_a)
