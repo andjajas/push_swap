@@ -16,12 +16,14 @@ push back the 2 values from b
 
 ## Resources
 #### Codam peers:
-* alkhan, bandrade, cpfister, eschloss, lblonk, nakhatoo, pride-ol, stehoffm, vvan-der<br>
+* alkhan, bandrade, cpfister, eschloss, lblonk, nakhatoo, pride-ol, stehoffm, tveltman, vvan-der<br>
 #### Algorithms:
 * [analysis (wikipedia)](https://en.wikipedia.org/wiki/Analysis_of_algorithms)<br>
 * [Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
 * [sorting algorithms (geeksforgeeks)](https://www.geeksforgeeks.org/dsa/sorting-algorithms/)<br>
 * [selection sort (geeksforgeeks)](https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/)<br>
+* [radix sort (Wikipedia)](https://en.wikipedia.org/wiki/Radix_sort)<br>
+* [significant digits, MSD, LSD (Wikipedia)](https://en.wikipedia.org/wiki/Significant_figures#Least_significant_digit)<br>
 #### Operations:
 * [stack, push, pop (wikipedia)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
 * [stack in C, push, pop (geeksforgeeks)](https://www.geeksforgeeks.org/c/implement-stack-in-c/)<br>
@@ -36,9 +38,11 @@ push back the 2 values from b
 * [enum in C (geeksforgeeks)](https://www.geeksforgeeks.org/c/enumeration-enum-c/)<br>
 * [enum in C (w3schools)](https://www.w3schools.com/c/c_enums.php)<br>
 #### use of AI:
-* [Microsoft copilot](https://copilot.microsoft.com/) was used with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
+* tvan-kop didn't use AI
+* andjajas used [Microsoft copilot](https://copilot.microsoft.com/) & [Claude AI](https://claude.ai/new) with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
+	* topics where AI improved understanding: selection sort, radix sort
 
 
 

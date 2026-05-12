@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/12 10:35:24 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 13:09:58 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ void	solve_input_is_three(t_stack *stack_a, int *stats)
 	top = stack_a->top->num;
 	middle = stack_a->top->next->num;
 	bottom = stack_a->top->prev->num;
-	if (top > middle && middle < bottom && top < bottom) //213
+	if (top > middle && middle < bottom && top < bottom)
 		sa(stack_a, stats);
-	else if (top < middle && middle > bottom && top > bottom) // 231
+	else if (top < middle && middle > bottom && top > bottom)
 		rra(stack_a, stats);
-	else if (top > middle && middle < bottom && top > bottom) // 312
+	else if (top > middle && middle < bottom && top > bottom)
 		ra(stack_a, stats);
-	else if (top < middle && middle > bottom && top < bottom) // 132
-	{		
+	else if (top < middle && middle > bottom && top < bottom)
+	{
 		sa(stack_a, stats);
 		ra(stack_a, stats);
 	}
-	else if (top > middle && middle > bottom && top > bottom) // 321
+	else if (top > middle && middle > bottom && top > bottom)
 	{
 		ra(stack_a, stats);
 		sa(stack_a, stats);
@@ -59,7 +59,7 @@ void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
 }
 
 /*
-we can use extra variables for clarity or keep it minimal with these comparisons:
+we can use extra variables for clarity and we need these comparisons:
 compare top with middle, middle with bottom, top with bottom.
 213 sa, 231 rra, 312 ra, 132 sa ra, 321 sa rra or ra sa
 */

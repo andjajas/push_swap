@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/11 15:14:52 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/12 11:39:38 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 		stats[PA] = 1000;
 }
 
+void	convert_num_to_rank()
 // this function maybe needed for medium or complex algorithms?
 // t_num	*find_smallest_node(t_stack *stack_a)
 // {
@@ -66,7 +67,7 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 // 		i++;
 // 	}
 // }
-// TIP from many other peer groups: we need a hardcoded situation for 3- and 5- int string inputs
-// add it for the input handling, so you hit the benchmark performance during evaluation!
+//
+// lets try RADIX SORT for the complex algorithm.
 // we also can make an option that makes the LIVE coding session much easier during evaluation!
-// our solve simple here is SELECTION SORT
+
