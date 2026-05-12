@@ -60,7 +60,7 @@ typedef struct s_settings
 
 typedef struct s_num
 {
-	long long int	num;
+	long long	num;
 	unsigned int	rank;
 	struct s_num	*prev;
 	struct s_num	*next;
@@ -105,7 +105,7 @@ void			ops_put_operation(enum e_operation operation, int *stats);
 t_e_strategy	get_strategy(float disorder);
 
 // stack (linked-list) functions
-t_num			*new_node(long long int num);
+t_num			*new_node(long long num);
 void			stack_add_back(t_stack *stack, t_num *new);
 void			clear_stack(t_stack *stack);
 
@@ -116,7 +116,7 @@ size_t			ft_strlen(const char *s);
 void			ft_putstr(const char *s);
 void			ft_putstr_err(const char *s);
 void			ft_bzero(void *memory, size_t n);
-long long int	ft_atoi(const char *string);
+long long	ft_atoi(const char *string);
 int				find_index(const char *string, char c);
 
 // ft_printfcustom only functions

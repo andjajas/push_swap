@@ -23,9 +23,9 @@ void	solve_input_is_two(t_stack *stack_a, int *stats)
 // work in progress:
 void	solve_input_is_three(t_stack *stack_a, int *stats)
 {
-	long long int	top;
-	long long int	middle;
-	long long int	bottom;
+	long long	top;
+	long long	middle;
+	long long	bottom;
 
 	top = stack_a->top->num;
 	middle = stack_a->top->next->num;

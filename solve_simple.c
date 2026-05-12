@@ -56,7 +56,7 @@ void	rotate_smallest_to_top(t_stack	*stack, int *stats)
 int	find_index_smallest(t_stack *stack_a)
 {
 	t_num			*current_node;
-	long long int	current_smallest_value;
+	long long	current_smallest_value;
 	int				i;
 	int				index;
 

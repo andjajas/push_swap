@@ -62,10 +62,10 @@ void	ft_bzero(void *memory, size_t n)
 	}
 }
 
-long long int	ft_atoi(const char *string)
+long long	ft_atoi(const char *string)
 {
 	size_t				i;
-	long long int		number;
+	long long		number;
 	bool				isnegative;
 
 	i = 0;

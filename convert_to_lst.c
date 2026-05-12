@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 static bool	check_duplicate(t_stack *stack, int number);
-static bool	out_of_bounds(long long int number);
+static bool	out_of_bounds(long long number);
 
 t_did_succeed	convert_to_lst(char **argv, t_stack *stack)
 {
@@ -53,7 +53,7 @@ static bool	check_duplicate(t_stack *stack, int number)
 	return (false);
 }
 
-static bool	out_of_bounds(long long int number)
+static bool	out_of_bounds(long long number)
 {
 	if (INT_MIN <= number && number <= INT_MAX)
 		return (false);

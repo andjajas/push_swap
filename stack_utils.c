@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_num	*new_node(long long int num)
+t_num	*new_node(long long num)
 {
 	t_num	*new;
 

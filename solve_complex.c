@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/12 13:46:13 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/12 15:07:20 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 		stats[PA] = 1000;
 }
 
+void	rank_num(t_stack *stack_a)
+{
+	int	*nums = malloc(sizeof(int))
+}
+
 // void	convert_num_to_rank()
 // this function maybe needed for medium or complex algorithms?
 // t_num	*find_smallest_node(t_stack *stack_a)
 // {
 // 	t_num			*current_node;
 // 	t_num			*smallest_node;
-// 	long long int	current_smallest_value;
+// 	long long	current_smallest_value;
 // 	int				i;
 
 // 	current_node = stack_a->top->next;
