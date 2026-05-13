@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/13 16:48:00 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/13 17:52:43 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 	assign_rank(stack_a);
 	bits = calculate_bits(stack_a);
 	ib = 0;
-	while(ib < bits)
+	while (ib < bits)
 	{
-		counter_stack_a = stack_a->size;     
-		while(counter_stack_a--)
+		counter_stack_a = stack_a->size;
+		while (counter_stack_a--)
 		{
 			current_bit = (stack_a->top->rank >> ib) & 1;
 			if (current_bit == 0)
@@ -45,7 +45,7 @@ int	calculate_bits(t_stack *stack_a)
 	int	max_rank;
 
 	bits = 0;
-	max_rank = stack_a->size -1;
+	max_rank = stack_a->size - 1;
 	while ((max_rank >> bits) != 0)
 		bits++;
 	return (bits);
@@ -128,7 +128,7 @@ void	assign_rank(t_stack *stack_a)
 }
 
 // add to README vincent en thijn
-// void	convert_num_to_rank()
+// void	convert_num_to_rank(void)
 // this function maybe needed for medium or complex algorithms?
 // t_num	*find_smallest_node(t_stack *stack_a)
 // {
@@ -154,7 +154,8 @@ void	assign_rank(t_stack *stack_a)
 // 	return (smallest_node);
 // }
 //
-// static void	assign_rank(t_stack *stack_a) // work in progress for medium & complex
+// static void	assign_rank(t_stack *stack_a)
+		// work in progress for medium & complex
 // {
 // 	int			current_rank;
 // 	long long	min_value;
@@ -177,5 +178,5 @@ void	assign_rank(t_stack *stack_a)
 // }
 //
 // lets try RADIX SORT for the complex algorithm.
-// we also can make an option that makes the LIVE coding session much easier during evaluation!
-
+// we also can make an option that makes the LIVE
+// coding session much easier during evaluation!
