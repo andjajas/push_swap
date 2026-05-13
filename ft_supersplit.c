@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/11 15:32:21 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 21:02:28 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/13 16:00:26 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static size_t	ft_split(char **dest, const char *s, char c)
 		i++;
 		while (*s == c)
 			s++;
-		if (*s != '\0')
+		if (*s == '\0')
 			return (i);
 	}
 }
@@ -98,7 +98,7 @@ static size_t	count_splits(const char *s, char c)
 		count++;
 		while (*s == c)
 			s++;
-		if (s[i] != '\0')
+		if (s[i] == '\0')
 			return (count);
 	}
 }
