@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/01 12:40:07 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 21:00:59 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/13 14:51:21 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,4 @@ long long	ft_atoi(const char *string)
 	if (isnegative == true)
 		return (number * -1);
 	return (number);
-}
-
-int	find_index(const char *string, char c)
-{
-	int	i;
-
-	i = 0;
-	while (string[i] != '\0' && string[i] != c)
-		i++;
-	return (i);
 }

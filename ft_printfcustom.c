@@ -6,12 +6,13 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 21:01:29 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/13 14:50:33 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	find(const char *string, char c);
 static void	print_variable(char identifier, va_list args);
 
 void	ft_printfcustom(const char *string, ...)
@@ -22,7 +23,7 @@ void	ft_printfcustom(const char *string, ...)
 	va_start(args, string);
 	while (true)
 	{
-		next_percent = find_index(string, '%');
+		next_percent = find(string, '%');
 		write(1, string, next_percent);
 		string += next_percent;
 		if (*string == '\0')
@@ -45,4 +46,14 @@ static void	print_variable(char identifier, va_list args)
 	else
 		ft_putstr_err(
 			"\n An error occured. ft_printfcustom was used wrong.\n");
+}
+
+static int	find(const char *string, char c)
+{
+	int	i;
+
+	i = 0;
+	while (string[i] != '\0' && string[i] != c)
+		i++;
+	return (i);
 }
