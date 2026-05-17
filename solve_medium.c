@@ -18,15 +18,33 @@ void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 	assign_chunks(stack_a);
 }
 
-void	assign_chunks(stack_a)
+void	assign_chunks(t_stack *stack_a)
 {
-	int	stack_a_size;
-	int	chunks_needed;
-	int	chunk_size;
+	int	i;
 
-	stack_a_size = stack_a->size;
-	chunks_needed = square_root(stack_a_size);
-	chunk_size = stack_a_size / chunks_needed;
+	stack_a->chunks_needed = square_root(stack_a->size);
+	stack_a->chunk_size = stack_a->size / stack_a->chunks_needed;
+	stack_a->chunk_starts = malloc(sizeof(int) * stack_a->chunks_needed);
+	if (stack_a->chunk_starts == NULL)
+		return ;
+	stack_a->chunk_ends = malloc(sizeof(int) * stack_a->chunks_needed);
+	if (stack_a->chunk_ends == NULL)
+	{
+		free(stack_a->chunk_starts);
+		return ;
+	}
+	i = 0;
+	while (i < stack_a->chunks_needed - 1)
+	{
+		stack_a->chunk_starts[i] = i * stack_a->chunk_size;
+		stack_a->chunk_ends[i] = (i + 1) * stack_a->chunk_size - 1;
+		i++;
+	}
+	if (i == stack_a->chunks_needed - 1)
+	{
+		stack_a->chunk_starts[i] = i * stack_a->chunk_size;
+		stack_a->chunk_ends[i] = stack_a->size - 1;
+	}
 }
 
 int	square_root(int n)

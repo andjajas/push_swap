@@ -70,6 +70,8 @@ typedef struct s_stack
 	int				*sorted;
 	int				*chunk_starts;
 	int				*chunk_ends;
+	int				chunks_needed;
+	int				chunk_size;
 }	t_stack;
 
 // used in main
