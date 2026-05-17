@@ -67,6 +67,9 @@ typedef struct s_stack
 {
 	t_num			*top;
 	int				size;
+	int				*sorted;
+	int				*chunk_starts;
+	int				*chunk_ends;
 }	t_stack;
 
 // used in main

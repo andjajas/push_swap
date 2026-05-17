@@ -22,9 +22,11 @@ void	assign_chunks(stack_a)
 {
 	int	stack_a_size;
 	int	chunks_needed;
+	int	chunk_size;
 
 	stack_a_size = stack_a->size;
 	chunks_needed = square_root(stack_a_size);
+	chunk_size = stack_a_size / chunks_needed;
 }
 
 int	square_root(int n)
