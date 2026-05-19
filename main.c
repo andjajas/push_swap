@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:03:32 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/19 14:02:45 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&stack_b, sizeof(stack_b));
 	i = 1;
 	i += set_settings(argv + i, &settings);
-	if (is_valid_input(argv + i) == false
-		|| convert_to_lst(argv + i, &stack_a) == FAILED)
+	if (convert_to_lst(argv + i, &stack_a) == FAILED)
 	{
 		ft_putstr_err("Error\n");
 		return (1);
