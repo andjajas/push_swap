@@ -6,11 +6,14 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/13 17:52:43 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/19 16:24:08 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	assign_rank(t_stack *stack_a);
+int		calculate_bits(t_stack *stack_a);
 
 void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
