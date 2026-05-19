@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       ::::::::             */
-/*   ft_printfcustom.c                                 :+:    :+:             */
+/*   ft_printf_bench.c                                 :+:    :+:             */
 /*                                                    +:+                     */
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
@@ -15,7 +15,7 @@
 static int	find(const char *string, char c);
 static void	print_variable(char identifier, va_list args);
 
-void	ft_printfcustom(const char *string, ...)
+void	ft_printf_bench(const char *string, ...)
 {
 	va_list	args;
 	int		next_percent;
@@ -45,7 +45,7 @@ static void	print_variable(char identifier, va_list args)
 		ft_put_uint(va_arg(args, unsigned int));
 	else
 		ft_putstr_err(
-			"\n An error occured. ft_printfcustom was used wrong.\n");
+			"\n An error occured. ft_printf_bench was used wrong.\n");
 }
 
 static int	find(const char *string, char c)

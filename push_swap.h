@@ -79,7 +79,7 @@ void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			print_bench(float disorder, t_e_strategy strategy, int *stats);
-void			ft_printfcustom(const char *string, ...);
+void			ft_printf_bench(const char *string, ...);
 
 // operation functions
 void			pa(t_stack *stack_a, t_stack *stack_b, int *stats);
@@ -112,7 +112,7 @@ void			ft_putstr_err(const char *s);
 void			ft_bzero(void *memory, size_t n);
 long long		ft_atoi(const char *string);
 
-// ft_printfcustom only functions
+// ft_printf_bench only functions
 void			ft_put_strategy(t_e_strategy strategy, float disorder);
 void			ft_put_disorder(float disorder);
 void			ft_put_uint(unsigned int n);
