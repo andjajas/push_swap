@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/12 21:02:07 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/19 15:34:41 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ bool			is_valid_input(char **argv);
 int				set_settings(char **argv, t_set *settings);
 t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
 void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
-char			**ft_supersplit(const char **input, char c);
+char			**ft_supersplit(const char **input, bool (*check)(int));
 void			free_array(char **array);
 
 // used in push_swap
@@ -117,7 +117,6 @@ void			ft_putstr(const char *s);
 void			ft_putstr_err(const char *s);
 void			ft_bzero(void *memory, size_t n);
 long long		ft_atoi(const char *string);
-int				find_index(const char *string, char c);
 
 // ft_printfcustom only functions
 void			ft_put_strategy(t_e_strategy strategy, float disorder);

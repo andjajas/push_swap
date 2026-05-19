@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/19 13:30:56 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/19 15:40:58 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_did_succeed	do_all(char **argv, t_stack *stack_a, t_stack *stack_b)
 	char	**input;
 	int		i;
 
-	input = ft_supersplit((const char **)argv, ' ');
+	input = ft_supersplit((const char **)argv, ft_isspace);
 	if (input == NULL)
 		return (FAILED);
 	i = 1;

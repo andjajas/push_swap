@@ -6,12 +6,13 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 21:01:29 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/19 15:34:26 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	find_index(const char *string, char c);
 static void	print_variable(char identifier, va_list args);
 
 void	ft_printfcustom(const char *string, ...)
@@ -32,6 +33,16 @@ void	ft_printfcustom(const char *string, ...)
 		string++;
 	}
 	va_end(args);
+}
+
+static int	find_index(const char *string, char c)
+{
+	int	i;
+
+	i = 0;
+	while (string[i] != '\0' && string[i] != c)
+		i++;
+	return (i);
 }
 
 static void	print_variable(char identifier, va_list args)

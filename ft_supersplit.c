@@ -6,34 +6,35 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/11 15:32:21 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/13 16:00:26 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/19 15:42:18 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_split(char **dest, const char *s, char c);
-static size_t	count_supersplits(const char **array, char c);
-static size_t	count_splits(const char *s, char c);
+static size_t	ft_split(char **dest, const char *s, bool (*check)(int));
+static size_t	count_supersplits(const char **array, bool (*check)(int));
+static size_t	count_splits(const char *s, bool (*check)(int));
 static char		*ft_substr(const char *s, size_t len);
 static size_t	min(size_t a, size_t b);
 static void		*ft_calloc(size_t nmemb, size_t size);
+static int		find_index_func(const char *string, bool (*check)(int));
 
-char	**ft_supersplit(const char **input, char c)
+char	**ft_supersplit(const char **input, bool (*check)(int))
 {
 	size_t	split_amount;
 	size_t	splits;
 	size_t	i;
 	char	**result;
 
-	split_amount = count_supersplits(input, c);
+	split_amount = count_supersplits(input, check);
 	result = ft_calloc(split_amount + 1, sizeof(char *));
 	if (result == NULL)
 		return (NULL);
 	i = 0;
 	while (i < split_amount)
 	{
-		splits = ft_split(result + i, *input, c);
+		splits = ft_split(result + i, *input, check);
 		if (splits == 0)
 		{
 			free_array(result);
@@ -47,56 +48,56 @@ char	**ft_supersplit(const char **input, char c)
 	return (result);
 }
 
-static size_t	ft_split(char **dest, const char *s, char c)
+static size_t	ft_split(char **dest, const char *s, bool (*check)(int))
 {
 	size_t	i;
 	size_t	next_split;
 
 	i = 0;
-	while (*s == c)
+	while (check(*s) == true)
 		s++;
 	while (true)
 	{
-		next_split = find_index(s, c);
+		next_split = find_index_func(s, check);
 		dest[i] = ft_substr(s, next_split);
 		if (dest[i] == NULL)
 			return (0);
 		s += next_split;
 		i++;
-		while (*s == c)
+		while (check(*s) == true)
 			s++;
 		if (*s == '\0')
 			return (i);
 	}
 }
 
-static size_t	count_supersplits(const char **array, char c)
+static size_t	count_supersplits(const char **array, bool (*check)(int))
 {
 	size_t	count;
 
 	count = 0;
 	while (*array != NULL)
 	{
-		count += count_splits(*array, c);
+		count += count_splits(*array, check);
 		array++;
 	}
 	return (count);
 }
 
-static size_t	count_splits(const char *s, char c)
+static size_t	count_splits(const char *s, bool (*check)(int))
 {
 	size_t	count;
 	size_t	i;
 
-	while (*s == c)
+	while (check(*s) == true)
 		s++;
 	count = 0;
 	i = 0;
 	while (true)
 	{
-		s += find_index(s, c);
+		s += find_index_func(s, check);
 		count++;
-		while (*s == c)
+		while (check(*s) == true)
 			s++;
 		if (s[i] == '\0')
 			return (count);
@@ -156,4 +157,14 @@ static void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	ft_bzero(return_pointer, total_size);
 	return (return_pointer);
+}
+
+static int	find_index_func(const char *string, bool (*check)(int))
+{
+	int	i;
+
+	i = 0;
+	while (string[i] != '\0' && check(string[i]) == false)
+		i++;
+	return (i);
 }
