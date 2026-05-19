@@ -47,7 +47,7 @@ push back the 2 values from b
 
 
 # THINGS WE NEED TO DO BEFORE HANDING IN
-remove the ft_putstr statement at the end of the main file.
+remove the ft_putstr statement at the end of the main file saying "Bench was not enabled"
 In the makefile, remove the wildcard for source!
 
 ## to-do
