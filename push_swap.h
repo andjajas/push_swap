@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/20 18:21:09 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/20 19:12:58 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,13 @@ int				set_settings(char **argv, t_set *settings);
 t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
 void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
 char			**ft_supersplit(const char **input, bool (*check)(int));
+void			free_array(char **array);
+
+// used in ft_supersplit
+size_t			count_supersplits(const char **array, bool (*check)(int));
+int				find_index_func(const char *string, bool (*check)(int));
+
+// used in both
 void			free_array(char **array);
 
 // used in push_swap

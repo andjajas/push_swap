@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       ::::::::             */
-/*   ft_printf_bench.c                                 :+:    :+:             */
+/*   ft_printfcustom.c                                 :+:    :+:             */
 /*                                                    +:+                     */
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/19 16:32:28 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/20 19:12:47 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_printf_bench(const char *string, ...)
 	while (true)
 	{
 		next_percent = find_index(string, '%');
-		write(1, string, next_percent);
+		write(STDERR_FILENO, string, next_percent);
 		string += next_percent;
 		if (*string == '\0')
 			break ;
