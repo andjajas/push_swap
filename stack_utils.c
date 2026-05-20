@@ -62,5 +62,7 @@ void	clear_stack(t_stack *stack)
 		now = next;
 		i++;
 	}
+	if (stack->sorted)
+		free(stack->sorted);
 	ft_bzero(stack, sizeof(t_stack));
 }

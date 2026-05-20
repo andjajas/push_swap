@@ -113,6 +113,7 @@ void	assign_rank(t_stack *stack_a)
 	nums = sort_for_assign_rank(stack_a);
 	if (nums == NULL)
 		return ;
+	stack_a->sorted = nums;
 	i = 0;
 	while (i < stack_a->size)
 	{
@@ -127,7 +128,6 @@ void	assign_rank(t_stack *stack_a)
 		}
 		i++;
 	}
-	free(nums);
 }
 
 // add to README vincent en thijn

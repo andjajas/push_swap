@@ -16,12 +16,12 @@ static unsigned int	stats_total(int *stats);
 
 void	print_bench(float disorder, t_e_strategy strategy, int *stats)
 {
-	ft_printfcustom("[bench] disorder: %d\n", disorder);
-	ft_printfcustom("[bench] strategy: %s\n", strategy, disorder);
-	ft_printfcustom("[bench] total_ops: %u\n", stats_total(stats));
-	ft_printfcustom("[bench] sa: %u sb: %u ss: %u pa: %u pb: %u\n",
+	ft_printf_bench("[bench] disorder: %d\n", disorder);
+	ft_printf_bench("[bench] strategy: %s\n", strategy, disorder);
+	ft_printf_bench("[bench] total_ops: %u\n", stats_total(stats));
+	ft_printf_bench("[bench] sa: %u sb: %u ss: %u pa: %u pb: %u\n",
 		stats[SA], stats[SB], stats[SS], stats[PA], stats[PB]);
-	ft_printfcustom("[bench] ra: %u rb: %u rr: %u rra: %u rrb: %u rrr: %u\n",
+	ft_printf_bench("[bench] ra: %u rb: %u rr: %u rra: %u rrb: %u rrr: %u\n",
 		stats[RA], stats[RB], stats[RR], stats[RRA], stats[RRB], stats[RRR]);
 }
 
