@@ -30,7 +30,8 @@ fclean:
 re: fclean all
 
 debug:
-	$(CC) $(CFLAGS) -g $(SOURCE) -o $(NAME)
+	$(CC) -Wextra -Wall -O0 -g $(SOURCE) -o $(NAME)
+	gdb ./push_swap
 
 help:
 	@echo "\

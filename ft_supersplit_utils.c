@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/20 18:54:40 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/20 19:02:54 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/20 20:15:45 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	free_array(char **array)
 	size_t	i;
 
 	i = 0;
-	while (array != NULL)
+	while (array[i] != NULL)
 	{
 		free(array[i]);
 		i++;
