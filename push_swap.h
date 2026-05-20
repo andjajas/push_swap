@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/20 19:12:58 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/20 21:16:12 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,6 @@ typedef struct s_stack
 	int				chunks_needed;
 	int				chunk_size;
 }	t_stack;
-
-typedef struct s_rota
-{
-	int				ra_needed;
-	int				rra_needed;
-}	t_rota;
 
 // used in main
 int				set_settings(char **argv, t_set *settings);

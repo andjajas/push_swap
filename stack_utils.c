@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/30 15:47:57 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/11 15:49:53 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/20 20:25:36 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,9 @@ void	clear_stack(t_stack *stack)
 	}
 	if (stack->sorted)
 		free(stack->sorted);
+	if (stack->chunk_starts)
+		free(stack->chunk_starts);
+	if (stack->chunk_ends)
+		free(stack->chunk_ends);
 	ft_bzero(stack, sizeof(t_stack));
 }

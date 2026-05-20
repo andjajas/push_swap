@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/20 16:34:56 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/20 21:23:46 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,116 @@
 
 void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
+	int	i;
+	int	j;
+
 	assign_rank(stack_a);
 	assign_chunks(stack_a);
+
+	i = 0;
+	while (i < stack_a->chunks_needed)
+	{
+		j = 0;
+		while (j < stack_a->chunk_size)
+		{
+			push_next_in_chunk(stack_a, stack_b, j, stats);
+			j++;
+		}
+		i++;
+	}
 }
 
-void	push_chunk(t_stack *stack_a, t_stack *stack_b, int chunk_index, int *stats)
+void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b, int chunk_index,
+		int *stats)
 {
+	int	rot;
+	int	start;
+	int	end;
+
+	start = stack_a->chunk_starts[chunk_index];
+	end = stack_a->chunk_ends[chunk_index];
+	rot = needed_rotations(stack_a, start, end);
+	while (rot > 0)
+	{
+		ra(stack_a, stats);
+		rot--;
+	}
+	while (rot < 0)
+	{
+		rra(stack_a, stats);
+		rot++;
+	}
+	pb(stack_b, stack_a, stats);
 }
 
-t_rota	needed_rotations(t_stack *stack_a, int start, int end)
+int	needed_rotations(t_stack *stack_a, int start, int end)
 {
-	t_num			*now;
-	t_rota			calc_rota;
-	int				i;
+	int	ra_needed;
+	int	rra_needed;
+
+	if (top_check(stack_a, start, end) == 0)
+		return (0);
+	ra_needed = forward_scan(stack_a, start, end);
+	rra_needed = backward_scan(stack_a, start, end);
+	if (ra_needed <= rra_needed)
+		return (ra_needed);
+	else
+		return (-rra_needed);
+}
+
+int	top_check(t_stack *stack_a, int start, int end)
+{
+	t_num	*now;
 
 	now = stack_a->top;
 	if (in_chunk(now->rank, start, end))
 		return (0);
+	else
+		return (1);
+}
+
+int	forward_scan(t_stack *stack_a, int start, int end)
+{
+	t_num	*now;
+	int		ra_needed;
+	int		i;
+
 	now = stack_a->top->next;
+	ra_needed = stack_a->size;
 	i = 1;
 	while (i < stack_a->size)
 	{
 		if (in_chunk(now->rank, start, end))
 		{
-			calc_rota.ra = i;
-			break;
+			ra_needed = i;
+			break ;
 		}
 		now = now->next;
 		i++;
 	}
+	return (ra_needed);
+}
+
+int	backward_scan(t_stack *stack_a, int start, int end)
+{
+	t_num	*now;
+	int		rra_needed;
+	int		i;
+
 	now = stack_a->top->prev;
+	rra_needed = stack_a->size;
 	i = 1;
 	while (i < stack_a->size)
 	{
 		if (in_chunk(now->rank, start, end))
 		{
-			calc_rota.rra = i;
-			break;
+			rra_needed = i;
+			break ;
 		}
 		now = now->prev;
 		i++;
 	}
+	return (rra_needed);
 }
 
 bool	in_chunk(unsigned int rank, int start, int end)
@@ -100,7 +169,7 @@ int	square_root(int n)
 	i = 1;
 	while (i * i <= n)
 		i++;
-	return (i - 1)
+	return (i - 1);
 }
 
 // using chunk sort for the solve_medium
