@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   solve_low_disorder.c                               :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/05/21 11:14:12 by andjajas      #+#    #+#                 */
+/*   Updated: 2026/05/21 11:14:12 by andjajas      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int find_disorder_index(t_stack *stack_a)
