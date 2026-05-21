@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 19:05:05 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 20:43:15 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void		solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 {
-	int				stat_array[11];
-	int				*stats;
-	float			disorder;
+	int		stat_array[11];
+	int		*stats;
+	float	disorder;
 
 	if (settings.bench == true)
 	{
@@ -51,12 +51,12 @@ t_e_strategy	get_strategy(float disorder)
 }
 
 static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
-			t_e_strategy strategy)
+		t_e_strategy strategy)
 {
 	if (stack_a->size <= 5)
 		solve_super_ez(stack_a, stack_b, stats);
 	else if (strategy == LOW_DISORDER)
-		solve_low_disorder(stack_a, stack_b, stats);
+		solve_low_disorder(stack_a, stats);
 	else if (strategy == SIMPLE)
 		solve_simple(stack_a, stack_b, stats);
 	else if (strategy == MEDIUM)
@@ -74,7 +74,7 @@ static float	calculate_disorder(t_stack *stack)
 	t_num	*next_node;
 
 	if (stack->size < 2)
-		return ((float) 0);
+		return ((float)0);
 	total_pairs = stack->size - 1;
 	mistakes = 0;
 	i = 0;

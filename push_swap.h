@@ -6,23 +6,23 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 19:08:25 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 20:42:44 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <limits.h>
+# include <stdarg.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
 
 // this one exists SOLELY for the use of SIZE_MAX in ft_calloc.
 # include <stdint.h>
 
-enum	e_operation
+enum				e_operation
 {
 	SA,
 	SB,
@@ -41,7 +41,7 @@ typedef enum e_did_succeed
 {
 	SUCCES = true,
 	FAILED = false
-}	t_did_succeed;
+}					t_did_succeed;
 
 typedef enum e_strategy
 {
@@ -51,13 +51,13 @@ typedef enum e_strategy
 	MEDIUM,
 	COMPLEX,
 	LOW_DISORDER
-}	t_e_strategy;
+}					t_e_strategy;
 
 typedef struct s_settings
 {
 	t_e_strategy	strategy;
 	bool			bench;
-}	t_set;
+}					t_set;
 
 typedef struct s_num
 {
@@ -65,7 +65,7 @@ typedef struct s_num
 	unsigned int	rank;
 	struct s_num	*prev;
 	struct s_num	*next;
-}	t_num;
+}					t_num;
 
 typedef struct s_stack
 {
@@ -76,66 +76,71 @@ typedef struct s_stack
 	int				*chunk_ends;
 	int				chunks_needed;
 	int				chunk_size;
-}	t_stack;
+}					t_stack;
 
 // used in main
-int				set_settings(char **argv, t_set *settings);
-t_did_succeed	convert_to_lst(char **argv, t_stack *stack);
-void			push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings);
-char			**ft_supersplit(const char **input, bool (*check)(int));
-void			free_array(char **array);
+int					set_settings(char **argv, t_set *settings);
+t_did_succeed		convert_to_lst(char **argv, t_stack *stack);
+void				push_swap(t_stack *stack_a, t_stack *stack_b,
+						t_set settings);
+char				**ft_supersplit(const char **input, bool (*check)(int));
+void				free_array(char **array);
 
 // used in ft_supersplit
-size_t			count_supersplits(const char **array, bool (*check)(int));
-int				find_index_func(const char *string, bool (*check)(int));
+size_t				count_supersplits(const char **array, bool (*check)(int));
+int					find_index_func(const char *string, bool (*check)(int));
 
 // used in both
-void			free_array(char **array);
+void				free_array(char **array);
 
 // used in push_swap
-void			solve_low_disorder(t_stack *stack_a,
-					t_stack *stack_b, int *stats);
-void			solve_super_ez(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			print_bench(float disorder, t_e_strategy strategy, int *stats);
-void			ft_printf_bench(const char *string, ...);
+void				solve_low_disorder(t_stack *stack_a, int *stats);
+void				solve_super_ez(t_stack *stack_a, t_stack *stack_b,
+						int *stats);
+void				solve_simple(t_stack *stack_a, t_stack *stack_b,
+						int *stats);
+void				solve_medium(t_stack *stack_a, t_stack *stack_b,
+						int *stats);
+void				solve_complex(t_stack *stack_a, t_stack *stack_b,
+						int *stats);
+void				print_bench(float disorder, t_e_strategy strategy,
+						int *stats);
+void				ft_printf_bench(const char *string, ...);
 
 // operation functions
-void			pa(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			pb(t_stack *stack_b, t_stack *stack_a, int *stats);
-void			sa(t_stack *stack, int *stats);
-void			sb(t_stack *stack, int *stats);
-void			ss(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			ra(t_stack *stack_a, int *stats);
-void			rb(t_stack *stack_b, int *stats);
-void			rr(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			rra(t_stack *stack_a, int *stats);
-void			rrb(t_stack *stack_b, int *stats);
-void			rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
-void			ops_put_operation(enum e_operation operation, int *stats);
+void				pa(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				pb(t_stack *stack_b, t_stack *stack_a, int *stats);
+void				sa(t_stack *stack, int *stats);
+void				sb(t_stack *stack, int *stats);
+void				ss(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				ra(t_stack *stack_a, int *stats);
+void				rb(t_stack *stack_b, int *stats);
+void				rr(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				rra(t_stack *stack_a, int *stats);
+void				rrb(t_stack *stack_b, int *stats);
+void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
+void				ops_put_operation(enum e_operation operation, int *stats);
 
 // random function used in push_swap and ft_printfcustom_utils
-t_e_strategy	get_strategy(float disorder);
+t_e_strategy		get_strategy(float disorder);
 
 // stack (linked-list) functions
-t_num			*new_node(long long num);
-void			stack_add_back(t_stack *stack, t_num *new);
-void			clear_stack(t_stack *stack);
+t_num				*new_node(long long num);
+void				stack_add_back(t_stack *stack, t_num *new);
+void				clear_stack(t_stack *stack);
 
 // libft-like functions
-bool			ft_isdigit(int c);
-bool			ft_isspace(int c);
-size_t			ft_strlen(const char *s);
-void			ft_putstr(const char *s);
-void			ft_putstr_err(const char *s);
-void			ft_bzero(void *memory, size_t n);
-long long		ft_atoi(const char *string);
+bool				ft_isdigit(int c);
+bool				ft_isspace(int c);
+size_t				ft_strlen(const char *s);
+void				ft_putstr(const char *s);
+void				ft_putstr_err(const char *s);
+void				ft_bzero(void *memory, size_t n);
+long long			ft_atoi(const char *string);
 
 // ft_printf_bench only functions
-void			ft_put_strategy(t_e_strategy strategy, float disorder);
-void			ft_put_disorder(float disorder);
-void			ft_put_uint(unsigned int n);
+void				ft_put_strategy(t_e_strategy strategy, float disorder);
+void				ft_put_disorder(float disorder);
+void				ft_put_uint(unsigned int n);
 
 #endif

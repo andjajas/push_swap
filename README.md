@@ -46,7 +46,7 @@ push back the 2 values from b
 * andjajas used [Microsoft copilot](https://copilot.microsoft.com/) & [Claude AI](https://claude.ai/new) with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
-	* topics where AI improved understanding: selection sort, radix sort
+	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting
 
 
 

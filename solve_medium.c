@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 19:23:18 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/21 20:08:02 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_biggest_to_top(t_stack *stack_b, int *stats);
 int		find_biggest_rank(t_stack *stack_b);
 void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats);
 void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b, int chunk_index,
-		int *stats);
+			int *stats);
 int		needed_rotations(t_stack *stack_a, int start, int end);
 int		top_check(t_stack *stack_a, int start, int end);
 int		forward_scan(t_stack *stack_a, int start, int end);
@@ -65,28 +65,28 @@ void	rotate_biggest_to_top(t_stack *stack_b, int *stats)
 	}
 }
 
-int find_biggest_rank(t_stack *stack_b)
+int	find_biggest_rank(t_stack *stack_b)
 {
-    t_num       *current_node;
-    long long   current_biggest_rank;
-    int         i;
-    int         index;
+	t_num		*current_node;
+	long long	current_biggest_rank;
+	int			i;
+	int			index;
 
-    current_node = stack_b->top;
-    current_biggest_rank = current_node->rank;
-    i = 0;
-    index = 0;
-    while (i < stack_b->size)
-    {
-        if (current_node->rank > current_biggest_rank)
-        {
-            current_biggest_rank = current_node->rank;
-            index = i;
-        }
-        current_node = current_node->next;
-        i++;
-    }
-    return (index);
+	current_node = stack_b->top;
+	current_biggest_rank = current_node->rank;
+	i = 0;
+	index = 0;
+	while (i < stack_b->size)
+	{
+		if (current_node->rank > current_biggest_rank)
+		{
+			current_biggest_rank = current_node->rank;
+			index = i;
+		}
+		current_node = current_node->next;
+		i++;
+	}
+	return (index);
 }
 
 void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats)
