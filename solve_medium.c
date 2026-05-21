@@ -6,11 +6,25 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/20 21:23:46 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/21 11:39:05 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	assign_rank(t_stack *stack_a);
+void	rotate_biggest_to_top(t_stack *stack_b, int *stats);
+int		find_biggest_rank(t_stack *stack_b);
+void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats);
+void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b, int chunk_index,
+		int *stats);
+int		needed_rotations(t_stack *stack_a, int start, int end);
+int		top_check(t_stack *stack_a, int start, int end);
+int		forward_scan(t_stack *stack_a, int start, int end);
+int		backward_scan(t_stack *stack_a, int start, int end);
+bool	in_chunk(unsigned int rank, int start, int end);
+void	assign_chunks(t_stack *stack_a);
+int		square_root(int n);
 
 void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
@@ -51,7 +65,7 @@ void	rotate_biggest_to_top(t_stack *stack_b, int *stats)
 	}
 }
 
-int	find_biggest_rank(t_stack *stack_b, int *stats)
+int	find_biggest_rank(t_stack *stack_b)
 {
 	t_num		*current_node;
 	long long	current_biggest_rank;
@@ -188,7 +202,7 @@ int	backward_scan(t_stack *stack_a, int start, int end)
 
 bool	in_chunk(unsigned int rank, int start, int end)
 {
-	if (rank >= start && rank <= end)
+	if ((int)rank >= start && (int)rank <= end)
 		return (true);
 	return (false);
 }
