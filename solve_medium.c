@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 12:15:53 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/21 19:23:18 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,14 @@ void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	int	i;
 	int	j;
+	int	real_chunk_size;
 
 	i = 0;
 	while (i < stack_a->chunks_needed)
 	{
+		real_chunk_size = stack_a->chunk_ends[i] - stack_a->chunk_starts[i] + 1;
 		j = 0;
-		while (j < stack_a->chunk_size)
+		while (j < real_chunk_size)
 		{
 			push_next_in_chunk(stack_a, stack_b, i, stats);
 			j++;
