@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-void		rotate_smallest_to_top(t_stack	*stack, int *stats);
 static void	solve_input_is_two(t_stack *stack_a, int *stats);
 static void	solve_input_is_three(t_stack *stack_a, int *stats);
 static void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats);

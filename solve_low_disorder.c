@@ -15,9 +15,36 @@
 
 #include "push_swap.h"
 
-void	assign_rank(t_stack *stack_a);
+static int	find_disorder_index(t_stack *stack_a);
+static void	rotate_node_to_top(t_stack *stack_a, int index, int *stats);
 
-int	find_disorder_index(t_stack *stack_a)
+void	solve_low_disorder(t_stack *stack_a, int *stats)
+{
+	int	index;
+	int	i;
+
+	assign_rank (stack_a);
+	index = find_disorder_index(stack_a);
+	while (index != -1)
+	{
+		rotate_node_to_top(stack_a, index, stats);
+		sa(stack_a, stats);
+		if (index <= stack_a->size / 2)
+		{
+			i = index;
+			while (i--)
+				rra(stack_a, stats);
+		}
+		else
+		{
+			i = stack_a->size - index;
+			while (i--)
+				ra(stack_a, stats);
+		}
+	}
+}
+
+static int	find_disorder_index(t_stack *stack_a)
 {
 	t_num	*now;
 	int		i;
@@ -34,7 +61,7 @@ int	find_disorder_index(t_stack *stack_a)
 	return (-1);
 }
 
-void	rotate_element_to_top(t_stack *stack_a, int index, int *stats)
+static void	rotate_node_to_top(t_stack *stack_a, int index, int *stats)
 {
 	int	ra_needed;
 	int	rra_needed;
@@ -60,32 +87,3 @@ void	rotate_element_to_top(t_stack *stack_a, int index, int *stats)
 		}
 	}
 }
-
-void	solve_low_disorder(t_stack *stack_a, int *stats)
-{
-	int	index;
-	int	i;
-
-	index = find_disorder_index(stack_a);
-	assign_rank (stack_a);
-	while (index != -1)
-	{
-		rotate_element_to_top(stack_a, index, stats);
-		sa(stack_a, stats);
-		if (index <= stack_a->size / 2)
-		{
-			i = index;
-			while (i--)
-				rra(stack_a, stats);
-		}
-		else
-		{
-			i = stack_a->size - index;
-			while (i--)
-				ra(stack_a, stats);
-		}
-	}
-}
-
-// if disorder found at position i >> return (i);
-// if no disorder is found >> return (-1);

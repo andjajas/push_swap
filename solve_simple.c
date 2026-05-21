@@ -12,8 +12,7 @@
 
 #include "push_swap.h"
 
-int		find_index_smallest(t_stack *stack_a);
-void	rotate_smallest_to_top(t_stack	*stack, int *stats);
+static int	find_index_smallest(t_stack *stack_a);
 
 void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
@@ -53,7 +52,7 @@ void	rotate_smallest_to_top(t_stack	*stack, int *stats)
 	}
 }
 
-int	find_index_smallest(t_stack *stack_a)
+static int	find_index_smallest(t_stack *stack_a)
 {
 	t_num		*current_node;
 	long long	current_smallest_value;

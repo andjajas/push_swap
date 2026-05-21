@@ -16,7 +16,7 @@ push back the 2 values from b
 
 ## Resources
 #### Codam peers:
-* alkhan, bandrade, cpfister, eschloss, lblonk, nakhatoo, pride-ol, stehoffm, tveltman, vvan-der<br>
+* alkhan, bandrade, cpfister, eschloss, ivan-der, lblonk, nakhatoo, pride-ol, stehoffm, tkroon, tveltman, vcoevert, vvan-der, webbers<br>
 #### Algorithms:
 * [analysis (wikipedia)](https://en.wikipedia.org/wiki/Analysis_of_algorithms)<br>
 * [Big-O cheatsheet + links to different sorting algorithms](https://www.bigocheatsheet.com/)<br>
@@ -52,6 +52,9 @@ push back the 2 values from b
 
 # THINGS WE NEED TO DO BEFORE HANDING IN
 Fix the too many functions norminette error in libft_functions.
+Add 42/codam headers in assign_rank.c, medium_assign_chunks.c, medium_needed.rotations.c
+Fix 42/codam header in solve_low_disorder.c.
+solve_low_disorder.c still needs proper testing, intuition tells me it won't work in all cases
 
 ## to-do
 When adding/removing a file, update the makefile.

@@ -107,6 +107,12 @@ void				print_bench(float disorder, t_e_strategy strategy,
 						int *stats);
 void				ft_printf_bench(const char *string, ...);
 
+// helpers for solve_ functions
+void				assign_rank(t_stack *stack_a);
+void				assign_chunks(t_stack *stack_a);
+int					needed_rotations(t_stack *stack_a, int start, int end);
+void				rotate_smallest_to_top(t_stack *stack, int *stats);
+
 // operation functions
 void				pa(t_stack *stack_a, t_stack *stack_b, int *stats);
 void				pb(t_stack *stack_b, t_stack *stack_a, int *stats);

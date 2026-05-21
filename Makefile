@@ -18,7 +18,31 @@ RESET = \033[0;0m
 NAME = push_swap
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3
-SOURCE = convert_to_lst.c ft_printf_bench.c ft_printf_bench_utils.c ft_supersplit.c ft_supersplit_utils.c libft_functions.c main.c ops_push.c ops_put_operation.c ops_rev_rotate.c ops_rotate.c ops_swap.c print_bench.c push_swap.c set_settings.c solve_complex.c solve_low_disorder.c solve_medium.c solve_simple.c solve_super_ez.c stack_utils.c
+SOURCE = assign_rank.c \
+convert_to_lst.c \
+ft_printf_bench.c \
+ft_printf_bench_utils.c \
+ft_supersplit.c \
+ft_supersplit_utils.c \
+libft_functions.c \
+main.c \
+medium_assign_chunks.c \
+medium_needed_rotations.c \
+ops_push.c \
+ops_put_operation.c \
+ops_rev_rotate.c \
+ops_rotate.c \
+ops_swap.c \
+print_bench.c \
+push_swap.c \
+set_settings.c \
+solve_complex.c \
+solve_low_disorder.c \
+solve_medium.c \
+solve_simple.c \
+solve_super_ez.c \
+stack_utils.c
+
 OBJECT_FILES = $(SOURCE:.c=.o)
 
 all: $(NAME)
