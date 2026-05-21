@@ -17,17 +17,18 @@ int find_disorder_index(t_stack *stack_a)
 	t_num	*now;
 	int		i;
 
-	now	= stack_a->top;
+	now = stack_a->top;
 	i = 0;
-	while (now && now->next)
+	while (i < stack_a->size - 1)
 	{
 		if (now->rank > now->next->rank)
 			return i;
 		now = now->next;
 		i++;
 	}
-	return -1;
+	return (-1);
 }
+
 // if disorder found at position i >> return i;
 // if no disorder is found >> return -1;
 
@@ -85,7 +86,7 @@ void	rotate_back_to_original(t_stack *stack_a, int index, int *stats)
 	}
 }
 
-void fix_low_disorder(t_stack *stack_a, t_stack *stack_b, int *stats)
+void solve_low_disorder(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
     int	index;
 
