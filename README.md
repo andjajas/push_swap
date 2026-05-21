@@ -52,4 +52,6 @@ In the makefile, remove the wildcard for source!
 
 ## to-do
 In the makefile, `make` should check if anything has changed
-Check if the amount of numbers given is 1.
+It also should make object files.
+If the amount of arguements is less than 6, do solve_super_ez.
+Fix the too many functions norminette error in libft_functions.

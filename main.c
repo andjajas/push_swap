@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/19 16:33:48 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 12:49:57 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static t_did_succeed	do_all(char **argv, t_stack *stack_a, t_stack *stack_b)
 	free_array(input);
 	push_swap(stack_a, stack_b, settings);
 	clear_stack(stack_a);
-	if (settings.bench == false)
-		ft_putstr("Bench was not enabled.\n");
 	return (SUCCES);
 }
 

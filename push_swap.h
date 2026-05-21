@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/20 21:16:12 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/21 13:07:39 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int				find_index_func(const char *string, bool (*check)(int));
 void			free_array(char **array);
 
 // used in push_swap
+void			solve_super_ez(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats);
 void			solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats);

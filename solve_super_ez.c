@@ -6,22 +6,38 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/12 13:46:03 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 13:20:05 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_smallest_to_top(t_stack	*stack, int *stats);
+void		rotate_smallest_to_top(t_stack	*stack, int *stats);
+static void	solve_input_is_two(t_stack *stack_a, int *stats);
+static void	solve_input_is_three(t_stack *stack_a, int *stats);
+static void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats);
 
-void	solve_input_is_two(t_stack *stack_a, int *stats)
+void	solve_super_ez(t_stack *stack_a, t_stack *stack_b, int *stats)
+{
+	int	size;
+
+	size = stack_a->size;
+	if (size == 2)
+		solve_input_is_two(stack_a, stats);
+	else if (size == 3)
+		solve_input_is_three(stack_a, stats);
+	else if (size == 4 || size == 5)
+		solve_input_is_five(stack_a, stack_b, stats);
+}
+
+static void	solve_input_is_two(t_stack *stack_a, int *stats)
 {
 	if (stack_a->top->num > stack_a->top->next->num)
 		sa(stack_a, stats);
 }
 
 // work in progress:
-void	solve_input_is_three(t_stack *stack_a, int *stats)
+static void	solve_input_is_three(t_stack *stack_a, int *stats)
 {
 	long long	top;
 	long long	middle;
@@ -48,7 +64,7 @@ void	solve_input_is_three(t_stack *stack_a, int *stats)
 	}
 }
 
-void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
+static void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	while (stack_a->size > 3)
 	{

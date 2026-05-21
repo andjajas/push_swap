@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       ::::::::             */
-/*   ft_printfcustom_utils.c                           :+:    :+:             */
+/*   ft_printf_bench_utils.c                           :+:    :+:             */
 /*                                                    +:+                     */
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/19 21:34:27 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 11:46:23 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_put_strategy(t_e_strategy strategy, float disorder)
 	if (strategy == SIMPLE)
 		ft_putstr_err("O(n^2)");
 	else if (strategy == MEDIUM)
-		ft_putstr_err("O(n sqrt(n)");
+		ft_putstr_err("O(n sqrt(n))");
 	else if (strategy == COMPLEX)
 		ft_putstr_err("O(n log n)");
 }

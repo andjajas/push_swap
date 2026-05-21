@@ -6,37 +6,36 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 19:47:10 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/21 13:06:52 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static float		calculate_disorder(t_stack *stack);
+static float	calculate_disorder(t_stack *stack);
+static void		solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
+					t_e_strategy strategy);
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 {
 	int				stat_array[11];
 	int				*stats;
 	float			disorder;
-	t_e_strategy	strategy;
 
-	stats = stat_array;
-	ft_bzero(stat_array, sizeof(stat_array));
-	if (settings.bench == false)
+	if (settings.bench == true)
+	{
+		ft_bzero(stat_array, sizeof(stat_array));
+		stats = stat_array;
+	}
+	else
 		stats = NULL;
 	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == UNSET)
 		settings.strategy = ADAPTIVE;
-	strategy = settings.strategy;
-	if (strategy == ADAPTIVE)
-		strategy = get_strategy(disorder);
-	if (strategy == SIMPLE)
-		solve_simple(stack_a, stack_b, stats);
-	else if (strategy == MEDIUM)
-		solve_medium(stack_a, stack_b, stats);
-	else if (strategy == COMPLEX)
-		solve_complex(stack_a, stack_b, stats);
+	if (settings.strategy == ADAPTIVE)
+		solve_strategy(stack_a, stack_b, stats, get_strategy(disorder));
+	else
+		solve_strategy(stack_a, stack_b, stats, settings.strategy);
 	if (settings.bench == true)
 		print_bench(disorder, settings.strategy, stats);
 }
@@ -49,6 +48,19 @@ t_e_strategy	get_strategy(float disorder)
 		return (MEDIUM);
 	else
 		return (COMPLEX);
+}
+
+static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
+			t_e_strategy strategy)
+{
+	if (stack_a->size <= 5)
+		solve_super_ez(stack_a, stack_b, stats);
+	else if (strategy == SIMPLE)
+		solve_simple(stack_a, stack_b, stats);
+	else if (strategy == MEDIUM)
+		solve_medium(stack_a, stack_b, stats);
+	else if (strategy == COMPLEX)
+		solve_complex(stack_a, stack_b, stats);
 }
 
 static float	calculate_disorder(t_stack *stack)
