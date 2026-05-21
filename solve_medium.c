@@ -14,11 +14,71 @@
 
 void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
-	int	i;
-	int	j;
-
 	assign_rank(stack_a);
 	assign_chunks(stack_a);
+	push_chunks(stack_a, stack_b, stats);
+	while (stack_b->size > 0)
+	{
+		rotate_biggest_to_top(stack_b, stats);
+		pa(stack_a, stack_b, stats);
+	}
+}
+
+void	rotate_biggest_to_top(t_stack *stack_b, int *stats)
+{
+	int	rb_needed;
+	int	rrb_needed;
+
+	rb_needed = find_biggest_rank(stack_b);
+	if (rb_needed == 0)
+		return ;
+	if ((rb_needed) <= stack_b->size / 2)
+	{
+		while (rb_needed)
+		{
+			rb(stack_b, stats);
+			rb_needed--;
+		}
+	}
+	else
+	{
+		rrb_needed = stack_b->size - rb_needed;
+		while (rrb_needed)
+		{
+			rrb(stack_b, stats);
+			rrb_needed--;
+		}
+	}
+}
+
+int	find_biggest_rank(t_stack *stack_b, int *stats)
+{
+	t_num		*current_node;
+	long long	current_biggest_rank;
+	int			i;
+	int			index;
+
+	current_node = stack_b->top;
+	current_biggest_rank = stack_b->top->rank;
+	i = 0;
+	index = i;
+	while (i < stack_b->size)
+	{
+		if (current_node->rank > current_biggest_rank)
+		{
+			current_biggest_rank = current_node->rank;
+			index = i;
+		}
+		current_node = current_node->next;
+		i++;
+	}
+	return (index);
+}
+
+void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats)
+{
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < stack_a->chunks_needed)
@@ -26,7 +86,7 @@ void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 		j = 0;
 		while (j < stack_a->chunk_size)
 		{
-			push_next_in_chunk(stack_a, stack_b, j, stats);
+			push_next_in_chunk(stack_a, stack_b, i, stats);
 			j++;
 		}
 		i++;
