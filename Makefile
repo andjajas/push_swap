@@ -10,24 +10,39 @@
 #                                                                              #
 # **************************************************************************** #
 
+GREEN = \033[0;32m
+GREEN_BOLD = \033[1;32m
+RED = \033[0;91m
+RESET = \033[0;0m
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wextra -Wall -Werror -O3
-SOURCE = *.c
+SOURCE = convert_to_lst.c ft_printf_bench.c ft_printf_bench_utils.c ft_supersplit.c ft_supersplit_utils.c libft_functions.c main.c ops_push.c ops_put_operation.c ops_rev_rotate.c ops_rotate.c ops_swap.c print_bench.c push_swap.c set_settings.c solve_complex.c solve_low_disorder.c solve_medium.c solve_simple.c solve_super_ez.c stack_utils.c
+OBJECT_FILES = $(SOURCE:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SOURCE) -o $(NAME)
+$(NAME): $(OBJECT_FILES)
+	@echo "Linking object files and making the program..."
+	@$(CC) $(OBJECT_FILES) -o $(NAME)
+	@echo "$(GREEN_BOLD)Done$(RESET)"
+
+%.o: %.c
+	@echo "$(GREEN)Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "Nothing to clean!"
+	@rm -f $(OBJECT_FILES)
+	@echo "$(RED)Removed all object files.$(RESET)"
 
-fclean:
-	rm -f $(NAME)
+fclean: clean
+	@rm -f $(NAME)
+	@echo "$(RED)Removed the progam.$(RESET)"
 
 re: fclean all
+
+program: all clean
 
 debug:
 	$(CC) -Wextra -Wall -O0 -g $(SOURCE) -o $(NAME)
@@ -37,12 +52,13 @@ help:
 	@echo "\
 Usage:\n\
 make help	Shows this help menu.\n\
-make all	Makes the $(NAME) program.\n\
+make all	Makes the $(NAME) program, along with all of its object files.\n\
 make		Same as make all.\n\
-make clean	Does not delete anything..?\n\
-make fclean	Removes $(NAME).\n\
+make clean	Removes all object files (.o files).\n\
+make fclean	Does clean and removes the binary progam $(NAME).\n\
 make re		Does fclean, then remakes the program.\n\
-make debug	Remakes the $(NAME) program in debug mode.\n\
+make program	Does make all, then cleans up the object files.\n\
+make debug	Remakes the $(NAME) program in debug mode, compiling with flags -O0 and -g.\n\
 "
 
-.PHONY: all clean fclean re program help
+.PHONY: all clean fclean re program program debug help

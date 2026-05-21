@@ -33,6 +33,10 @@ push back the 2 values from b
 * [A site to learn git](https://learngitbranching.js.org/)<br>
 #### Automation commands:
 * [A site to learn search and replace with sed](https://www.redhat.com/en/blog/edit-text-bash-command)<br>
+#### The use of the gdb debugging tool:
+* [A gdb cheatsheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)<br>
+#### Coloring the make commands:
+* [Stackoverflow explaing how to color echo commands](https://stackoverflow.com/questions/24144440/color-highlighting-of-makefile-warnings-and-errors)<br>
 #### Enumeration:
 * [define or enum? (Stackoverflow)](https://stackoverflow.com/questions/3134757/define-or-enum)<br>
 * [enum in C (geeksforgeeks)](https://www.geeksforgeeks.org/c/enumeration-enum-c/)<br>
@@ -47,11 +51,7 @@ push back the 2 values from b
 
 
 # THINGS WE NEED TO DO BEFORE HANDING IN
-remove the ft_putstr statement at the end of the main file saying "Bench was not enabled"
-In the makefile, remove the wildcard for source!
+Fix the too many functions norminette error in libft_functions.
 
 ## to-do
-In the makefile, `make` should check if anything has changed
-It also should make object files.
-If the amount of arguements is less than 6, do solve_super_ez.
-Fix the too many functions norminette error in libft_functions.
+When adding/removing a file, update the makefile.
