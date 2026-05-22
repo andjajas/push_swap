@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                        ::::::::              #
-#    Makefile                                          :+:    :+:              #
-#                                                     +:+                      #
-#    By: tvan-kop <tvan-kop@student.codam.nl>        +#+                       #
-#                                                   +#+                        #
-#    Created: 2026/04/10 15:03:48 by tvan-kop     #+#    #+#                   #
-#    Updated: 2026/04/10 15:03:48 by tvan-kop     ########   odam.nl           #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: tvan-kop <tvan-kop@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2026/04/10 15:03:48 by tvan-kop      #+#    #+#                  #
+#    Updated: 2026/05/22 12:15:57 by andjajas      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,6 @@ print_bench.c \
 push_swap.c \
 set_settings.c \
 solve_complex.c \
-solve_low_disorder.c \
 solve_medium.c \
 solve_simple.c \
 solve_super_ez.c \
