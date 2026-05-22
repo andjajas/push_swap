@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/22 11:24:36 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 12:48:15 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef enum e_strategy
 
 typedef struct s_settings
 {
-	t_strategy	strategy;
+	t_strategy		strategy;
 	bool			bench;
 }					t_set;
 
@@ -126,7 +126,7 @@ void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
 void				ops_put_operation(enum e_operation operation, int *stats);
 
 // random function used in push_swap and ft_printfcustom_utils
-t_strategy		get_strategy(float disorder);
+t_strategy			get_strategy(float disorder);
 
 // stack (linked-list) functions
 t_num				*new_node(long long num);

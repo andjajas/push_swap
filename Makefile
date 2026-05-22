@@ -24,7 +24,8 @@ ft_printf_bench.c \
 ft_printf_bench_utils.c \
 ft_supersplit.c \
 ft_supersplit_utils.c \
-libft_functions.c \
+libft_functions1.c \
+libft_functions2.c \
 main.c \
 medium_assign_chunks.c \
 medium_needed_rotations.c \
