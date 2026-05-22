@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 20:42:44 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/22 11:24:36 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ typedef enum e_strategy
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
-	COMPLEX,
-	LOW_DISORDER
-}					t_e_strategy;
+	COMPLEX
+}	t_e_strategy;
 
 typedef struct s_settings
 {
@@ -94,7 +93,6 @@ int					find_index_func(const char *string, bool (*check)(int));
 void				free_array(char **array);
 
 // used in push_swap
-void				solve_low_disorder(t_stack *stack_a, int *stats);
 void				solve_super_ez(t_stack *stack_a, t_stack *stack_b,
 						int *stats);
 void				solve_simple(t_stack *stack_a, t_stack *stack_b,

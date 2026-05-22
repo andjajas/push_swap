@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 20:43:15 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/22 11:22:50 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 t_e_strategy	get_strategy(float disorder)
 {
 	if (disorder < 0.2)
-		return (LOW_DISORDER);
+		return (SIMPLE);
 	else if (disorder < 0.5)
 		return (MEDIUM);
 	else
@@ -55,8 +55,6 @@ static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
 {
 	if (stack_a->size <= 5)
 		solve_super_ez(stack_a, stack_b, stats);
-	else if (strategy == LOW_DISORDER)
-		solve_low_disorder(stack_a, stats);
 	else if (strategy == SIMPLE)
 		solve_simple(stack_a, stack_b, stats);
 	else if (strategy == MEDIUM)
