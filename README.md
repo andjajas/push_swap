@@ -4,6 +4,33 @@
 The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.<br>
 Originally designed as an individual challenge, this version has been expanded into a collaborative group project for two people. Working as a team, you must design, implement, and optimize an efficient data-sorting program in C using two stacks (a and b) and a strictly limited set of manipulation instructions.<br>
 
+Rules:
+• You have 2 stacks named a and b.<br>
+• At the beginning:
+◦ The stack a contains a random amount of negative and/or positive numbers without any duplicate.<br>
+◦ The stack b is empty.<br>
+• The goal is to sort in ascending order numbers into stack a.
+To do so you have the following operations at your disposal:<br>
+* sa (swap a): Swap the first two elements at the top of stack a.<br>
+Do nothing if there is only one or no elements.
+* sb (swap b): Swap the first two elements at the top of stack b.<br>
+Do nothing if there is only one or no elements.
+* ss : sa and sb at the same time.<br>
+* pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.<br>
+* pb (push b): Take the first element at the top of a and put it at the top of b.
+Do nothing if a is empty.<br>
+* ra (rotate a): Shift up all elements of stack a by one.
+The first element becomes the last one.<br>
+* rb (rotate b): Shift up all elements of stack b by one.
+The first element becomes the last one.
+* rr : ra and rb at the same time.<br>
+* rra (reverse rotate a): Shift down all elements of stack a by one.
+The last element becomes the first one.<br>
+* rrb (reverse rotate b): Shift down all elements of stack b by one.
+The last element becomes the first one.<br>
+* rrr : rra and rrb at the same time.
+
 ## Instructions
 After cloning the repo into a directory and going into the directory:
 
