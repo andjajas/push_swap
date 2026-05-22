@@ -1,7 +1,35 @@
 *This project has been created as part of the 42 curriculum by andjajas and tvan-kop.*
 
 ## Description
-The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.
+The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.<br>
+Originally designed as an individual challenge, this version has been expanded into a collaborative group project for two people. Working as a team, you must design, implement, and optimize an efficient data-sorting program in C using two stacks (a and b) and a strictly limited set of manipulation instructions.<br>
+
+Rules:
+• You have 2 stacks named a and b.<br>
+• At the beginning:
+◦ The stack a contains a random amount of negative and/or positive numbers without any duplicate.<br>
+◦ The stack b is empty.<br>
+• The goal is to sort in ascending order numbers into stack a.
+To do so you have the following operations at your disposal:<br>
+* sa (swap a): Swap the first two elements at the top of stack a.<br>
+Do nothing if there is only one or no elements.
+* sb (swap b): Swap the first two elements at the top of stack b.<br>
+Do nothing if there is only one or no elements.
+* ss : sa and sb at the same time.<br>
+* pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.<br>
+* pb (push b): Take the first element at the top of a and put it at the top of b.
+Do nothing if a is empty.<br>
+* ra (rotate a): Shift up all elements of stack a by one.
+The first element becomes the last one.<br>
+* rb (rotate b): Shift up all elements of stack b by one.
+The first element becomes the last one.
+* rr : ra and rb at the same time.<br>
+* rra (reverse rotate a): Shift down all elements of stack a by one.
+The last element becomes the first one.<br>
+* rrb (reverse rotate b): Shift down all elements of stack b by one.
+The last element becomes the first one.<br>
+* rrr : rra and rrb at the same time.
 
 ## Instructions
 After cloning the repo into a directory and going into the directory:
@@ -34,15 +62,29 @@ Then you can also put the optional flag:
 
 * --bench
 
-Which will print data about what algorithm it used.
+Which will print data about what algorithm it used.<br>
+
+All options for make can be found under:
+> make help
 
 ## Algorithms
-Handle trivial cases first<br>
-* Already sorted → do nothing<br>
-* 2 numbers → at most one sa<br>
-* 3 numbers → hardcode the logic (only 6 permutations)<br>
-* 5 numbers → push the lowest 2 values in b, sort remaining 3 with previous algorithm,
-push back the 2 values from b
+We had the advantage that many peer groups before us had struggled with testing different kinds of algorithms. We chose the following algorithms also based on their shared experiences with us.
+* For the `simple algorithm` we chose the `selection sort` adaptation. We also coded a low disorder sort algorithm, which was basically a 'bubble sort' type of algorithm. We compared the results between the two algorithms and decided even though 'bubble sort' was more efficient when a low amount of numbers was given as input, it could not handle large numbers of input very well. We also are going with the assumption that this line in the given subject.pdf is a typo: 'Low disorder: if disorder < 0.2, your chosen method must run in O(n) time'. A time complexity of O(n^2) makes more sense, given the options in the subject<br>
+* For the `medium algorithm` we chose the `chunk-based sorting` for these benefits (when compared to 'bucket sort'):
+	* Memory allocation: fits entirely within the existing two-stack structure (a and b)
+	* Access pattern: linear pointer movement (strictly top or bottom of the stack)
+	* Rotation cost is low: leverages bidirectional scans (ra/rra/rb/rrb) to minimize movement<br>
+* For the `complex algorithm` we chose `radix sort` adaptation, because we believe it to be the more constant & predictable choice compared to the other given options, because we only have 2 stacks to work with this option feels also the most logical one, because this 'radix sort' sorts at the binary level of the rank value. When we finished coding it, we were already satisfied with its results, we hardly looked at the other options<br> 
+
+* The `adaptive algorithm` uses:<br>
+	* our simple algorithm for disorder < 0.2,<br>
+	* our medium algorithm for 0.2 <= disorder < 0.5,<br>
+	* and our complex algorithm for disorder >= 0.5<br>
+	* Also we have added additional `hardcoded logic for user inputs < 6 values` to this `adaptive algorithm`:<br>
+		* Already sorted → do nothing<br>
+		* 2 numbers → at most one sa<br>
+		* 3 numbers → only 6 possible combinations as input<br>
+		* 5 numbers → push the lowest 2 values in b, sort remaining 3 with previous algorithm, push back the 2 values from b
 
 ## Resources
 #### Codam peers:
@@ -57,8 +99,9 @@ push back the 2 values from b
 #### Operations:
 * [stack, push, pop (wikipedia)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
 * [stack in C, push, pop (geeksforgeeks)](https://www.geeksforgeeks.org/c/implement-stack-in-c/)<br>
-#### Algorithmic visualizer:
-* [visualizer for push_swap](https://push-swap42-visualizer.vercel.app/)<br>
+#### Algorithmic visualizers:
+* [downloadable visualizer for push_swap on github](https://github.com/o-reo/push_swap_visualizer)<br>
+* [webbased visualizer for push_swap](https://push-swap42-visualizer.vercel.app/)<br>
 #### Git:
 * [A site to learn git](https://learngitbranching.js.org/)<br>
 #### Automation commands:
@@ -76,12 +119,4 @@ push back the 2 values from b
 * andjajas used [Microsoft copilot](https://copilot.microsoft.com/) & [Claude AI](https://claude.ai/new) with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
-	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting
-
-
-
-# THINGS WE NEED TO DO BEFORE HANDING IN
-Fix the too many functions norminette error in libft_functions.
-
-## to-do
-When adding/removing a file, update the makefile.
+	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting(effort was done, but didn't succeed because of time-constraint)
