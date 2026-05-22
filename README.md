@@ -99,8 +99,9 @@ We had the advantage that many peer groups before us had struggled with testing 
 #### Operations:
 * [stack, push, pop (wikipedia)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))<br>
 * [stack in C, push, pop (geeksforgeeks)](https://www.geeksforgeeks.org/c/implement-stack-in-c/)<br>
-#### Algorithmic visualizer:
-* [visualizer for push_swap](https://push-swap42-visualizer.vercel.app/)<br>
+#### Algorithmic visualizers:
+* [downloadable visualizer for push_swap on github](https://github.com/o-reo/push_swap_visualizer)<br>
+* [webbased visualizer for push_swap](https://push-swap42-visualizer.vercel.app/)<br>
 #### Git:
 * [A site to learn git](https://learngitbranching.js.org/)<br>
 #### Automation commands:
