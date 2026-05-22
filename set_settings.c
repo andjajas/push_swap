@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 static bool			get_bench_flag(const char *argument);
-static t_e_strategy	get_strategy_flag(const char *argument);
+static t_strategy	get_strategy_flag(const char *argument);
 
 int	set_settings(char **argv, t_set *settings)
 {
@@ -64,7 +64,7 @@ static bool	get_bench_flag(const char *argument)
 		return (false);
 }
 
-static t_e_strategy	get_strategy_flag(const char *argument)
+static t_strategy	get_strategy_flag(const char *argument)
 {
 	if (strmatch(argument, "--adaptive") == true)
 		return (ADAPTIVE);

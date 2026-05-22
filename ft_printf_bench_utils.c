@@ -6,13 +6,13 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/21 11:46:23 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 11:53:40 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_put_strategy(t_e_strategy strategy, float disorder)
+void	ft_put_strategy(t_strategy strategy, float disorder)
 {
 	if (strategy == ADAPTIVE)
 	{
@@ -59,8 +59,7 @@ void	ft_put_uint(unsigned int n)
 
 void	ft_put_disorder(float disorder)
 {
-	if ((unsigned int)(disorder * 100000) % 10 >= 5)
-		disorder += 0.0001;
+	disorder += 0.00005;
 	ft_putstr_err("%");
 	disorder *= 100;
 	ft_put_uint((unsigned int) disorder);

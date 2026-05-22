@@ -48,7 +48,7 @@ static int	find_index(const char *string, char c)
 static void	print_variable(char identifier, va_list args)
 {
 	if (identifier == 's')
-		ft_put_strategy(va_arg(args, t_e_strategy), va_arg(args, double));
+		ft_put_strategy(va_arg(args, t_strategy), va_arg(args, double));
 	else if (identifier == 'd')
 		ft_put_disorder(va_arg(args, double));
 	else if (identifier == 'u')

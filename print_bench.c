@@ -14,7 +14,7 @@
 
 static unsigned int	stats_total(int *stats);
 
-void	print_bench(float disorder, t_e_strategy strategy, int *stats)
+void	print_bench(float disorder, t_strategy strategy, int *stats)
 {
 	ft_printf_bench("[bench] disorder: %d\n", disorder);
 	ft_printf_bench("[bench] strategy: %s\n", strategy, disorder);
