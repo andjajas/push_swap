@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/21 20:08:02 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/22 09:29:50 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats);
 static void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b,
-	int chunk_index, int *stats);
+				int chunk_index, int *stats);
 static void	rotate_biggest_to_top(t_stack *stack_b, int *stats);
 static int	find_biggest_rank(t_stack *stack_b);
 
@@ -51,7 +51,7 @@ static void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats)
 }
 
 static void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b,
-	int chunk_index, int *stats)
+		int chunk_index, int *stats)
 {
 	int	rot;
 	int	start;

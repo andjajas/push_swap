@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   medium_needed_rotations.c                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/05/22 09:30:32 by andjajas      #+#    #+#                 */
+/*   Updated: 2026/05/22 09:30:32 by andjajas      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	top_check(t_stack *stack_a, int start, int end);

@@ -52,9 +52,6 @@ push back the 2 values from b
 
 # THINGS WE NEED TO DO BEFORE HANDING IN
 Fix the too many functions norminette error in libft_functions.
-Add 42/codam headers in assign_rank.c, medium_assign_chunks.c, medium_needed.rotations.c
-Fix 42/codam header in solve_low_disorder.c.
-solve_low_disorder.c still needs proper testing, intuition tells me it won't work in all cases
 
 ## to-do
 When adding/removing a file, update the makefile.

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   assign_rank.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/05/22 09:31:11 by andjajas      #+#    #+#                 */
+/*   Updated: 2026/05/22 09:31:11 by andjajas      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	*fill_for_assign_rank(t_stack *stack_a);

@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        ::::::::            */
 /*   solve_low_disorder.c                               :+:    :+:            */
-/*
-	+:+                    */
-/*   By: andjajas <andjajas@student.codam.nl>
-	+#+                     */
-/*
-	+#+                      */
-/*   Created: 2026/05/21 11:14:12 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/21 11:14:12 by andjajas      ########   odam.nl         */
+/*                                                     +:+                    */
+/*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/05/22 09:31:36 by andjajas      #+#    #+#                 */
+/*   Updated: 2026/05/22 09:31:36 by andjajas      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
