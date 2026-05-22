@@ -41,6 +41,7 @@ void	solve_low_disorder(t_stack *stack_a, int *stats)
 			while (i--)
 				ra(stack_a, stats);
 		}
+		index = find_disorder_index(stack_a);
 	}
 }
 
