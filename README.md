@@ -62,7 +62,10 @@ Then you can also put the optional flag:
 
 * --bench
 
-Which will print data about what algorithm it used.
+Which will print data about what algorithm it used.<br>
+
+All options for make can be found under:
+> make help
 
 ## Algorithms
 We had the advantage that many peer groups before us had struggled with testing different kinds of algorithms. We chose the following algorithms also based on their shared experiences with us.
