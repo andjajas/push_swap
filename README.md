@@ -1,7 +1,8 @@
 *This project has been created as part of the 42 curriculum by andjajas and tvan-kop.*
 
 ## Description
-The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.
+The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.<br>
+Originally designed as an individual challenge, this version has been expanded into a collaborative group project for two people. Working as a team, you must design, implement, and optimize an efficient data-sorting program in C using two stacks (a and b) and a strictly limited set of manipulation instructions.<br>
 
 ## Instructions
 After cloning the repo into a directory and going into the directory:
@@ -37,12 +38,23 @@ Then you can also put the optional flag:
 Which will print data about what algorithm it used.
 
 ## Algorithms
-Handle trivial cases first<br>
-* Already sorted → do nothing<br>
-* 2 numbers → at most one sa<br>
-* 3 numbers → hardcode the logic (only 6 permutations)<br>
-* 5 numbers → push the lowest 2 values in b, sort remaining 3 with previous algorithm,
-push back the 2 values from b
+We had the advantage that many peer groups before us had struggled with testing different kinds of algorithms. We chose the following algorithms also based on their shared experiences with us.
+* For the `simple algorithm` we chose the `selection sort` adaptation. We also coded a low disorder sort algorithm, which was basically a 'bubble sort' type of algorithm. We compared the results between the two algorithms and decided even though 'bubble sort' was more efficient when a low amount of numbers was given as input, it could not handle large numbers of input very well. We also are going with the assumption that this line in the given subject.pdf is a typo: 'Low disorder: if disorder < 0.2, your chosen method must run in O(n) time'. A time complexity of O(n^2) makes more sense, given the options in the subject<br>
+* For the `medium algorithm` we chose the `chunk-based sorting` for these benefits (when compared to 'bucket sort'):
+	* Memory allocation: fits entirely within the existing two-stack structure (a and b)
+	* Access pattern: linear pointer movement (strictly top or bottom of the stack)
+	* Rotation cost is low: leverages bidirectional scans (ra/rra/rb/rrb) to minimize movement<br>
+* For the `complex algorithm` we chose `radix sort` adaptation, because we believe it to be the more constant & predictable choice compared to the other given options, because we only have 2 stacks to work with this option feels also the most logical one, because this 'radix sort' sorts at the binary level of the rank value. When we finished coding it, we were already satisfied with its results, we hardly looked at the other options<br> 
+
+* The `adaptive algorithm` uses:<br>
+	* our simple algorithm for disorder < 0.2,<br>
+	* our medium algorithm for 0.2 <= disorder < 0.5,<br>
+	* and our complex algorithm for disorder >= 0.5<br>
+	* Also we have added additional `hardcoded logic for user inputs < 6 values` to this `adaptive algorithm`:<br>
+		* Already sorted → do nothing<br>
+		* 2 numbers → at most one sa<br>
+		* 3 numbers → only 6 possible combinations as input<br>
+		* 5 numbers → push the lowest 2 values in b, sort remaining 3 with previous algorithm, push back the 2 values from b
 
 ## Resources
 #### Codam peers:
@@ -76,12 +88,4 @@ push back the 2 values from b
 * andjajas used [Microsoft copilot](https://copilot.microsoft.com/) & [Claude AI](https://claude.ai/new) with a mandatory prompt (see below) so it would never give the code, but only acted as a guide for the logic when needed.
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
-	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting
-
-
-
-# THINGS WE NEED TO DO BEFORE HANDING IN
-Fix the too many functions norminette error in libft_functions.
-
-## to-do
-When adding/removing a file, update the makefile.
+	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting(effort was done, but didn't succeed because of time-constraint)
