@@ -4,7 +4,37 @@
 The goal of this project is to discover algorithmic complexity in a very concrete way. Choosing an algorithm can make huge differences in how fast you can sort a list of integers.
 
 ## Instructions
-Lorem Ipsum
+After cloning the repo into a directory and going into the directory:
+
+> git clone git@vogsphere-v2.codam.nl:vogsphere/intra-uuid-4e503d9f-c13d-4499-b189-fdd68f599a21-7364484-andjajas push_swap<br>
+> cd push_swap
+
+Run the `make` command:
+
+> make
+
+This should compile push_swap fully and produce an executeable called `push_swap`.
+To use push_swap, start with executing the program and then listing all the numbers kind of like this:
+
+> ./push_swap 9 -24 -5135 9873 (etc)
+
+Ofcourse, you can put any numbers. Any invalid number will result in it printing `Error`<br>
+You can also give the program flags. They must be listed right *after* the program name. For example:
+
+> ./push_swap --bench 7 8 2 4 (etc)
+
+The available flags are:
+* --simple      forces the program to use the *simple* algorithm.
+* --medium      forces the program to use the *medium* algorithm.
+* --complex     forces the program to use the *complex* algorithm.
+* --adaptive    forces the program to use the *adaptive* algorithm.
+
+These are *mutually exclusive*, meaning you can only put one flag of this kind.
+Then you can also put the optional flag:
+
+* --bench
+
+Which will print data about what algorithm it used.
 
 ## Algorithms
 Handle trivial cases first<br>
