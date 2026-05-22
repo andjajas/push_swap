@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       ::::::::             */
-/*   ft_printfcustom.c                                 :+:    :+:             */
+/*   ft_printf_bench.c                                 :+:    :+:             */
 /*                                                    +:+                     */
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/20 19:12:47 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 14:02:03 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	find_index(const char *string, char c)
 static void	print_variable(char identifier, va_list args)
 {
 	if (identifier == 's')
-		ft_put_strategy(va_arg(args, t_strategy), va_arg(args, double));
+		ft_put_strategy(va_arg(args, t_set));
 	else if (identifier == 'd')
 		ft_put_disorder(va_arg(args, double));
 	else if (identifier == 'u')

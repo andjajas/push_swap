@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/22 12:48:15 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 14:41:22 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef enum e_strategy
 typedef struct s_settings
 {
 	t_strategy		strategy;
+	bool			adaptive;
 	bool			bench;
 }					t_set;
 
@@ -78,8 +79,8 @@ typedef struct s_stack
 }					t_stack;
 
 // used in main
-int					set_settings(char **argv, t_set *settings);
-t_did_succeed		convert_to_lst(char **argv, t_stack *stack);
+int					set_settings(char **input, t_set *settings);
+t_did_succeed		convert_to_lst(char **input, t_stack *stack);
 void				push_swap(t_stack *stack_a, t_stack *stack_b,
 						t_set settings);
 char				**ft_supersplit(const char **input, bool (*check)(int));
@@ -101,7 +102,7 @@ void				solve_medium(t_stack *stack_a, t_stack *stack_b,
 						int *stats);
 void				solve_complex(t_stack *stack_a, t_stack *stack_b,
 						int *stats);
-void				print_bench(float disorder, t_strategy strategy,
+void				print_bench(float disorder, t_set settings,
 						int *stats);
 void				ft_printf_bench(const char *string, ...);
 
@@ -125,9 +126,6 @@ void				rrb(t_stack *stack_b, int *stats);
 void				rrr(t_stack *stack_a, t_stack *stack_b, int *stats);
 void				ops_put_operation(enum e_operation operation, int *stats);
 
-// random function used in push_swap and ft_printfcustom_utils
-t_strategy			get_strategy(float disorder);
-
 // stack (linked-list) functions
 t_num				*new_node(long long num);
 void				stack_add_back(t_stack *stack, t_num *new);
@@ -143,7 +141,7 @@ void				ft_bzero(void *memory, size_t n);
 long long			ft_atoi(const char *string);
 
 // ft_printf_bench only functions
-void				ft_put_strategy(t_strategy strategy, float disorder);
+void				ft_put_strategy(t_set settings);
 void				ft_put_disorder(float disorder);
 void				ft_put_uint(unsigned int n);
 

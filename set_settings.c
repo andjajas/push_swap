@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/08 18:08:31 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 14:43:13 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static bool			get_bench_flag(const char *argument);
 static t_strategy	get_strategy_flag(const char *argument);
 
-int	set_settings(char **argv, t_set *settings)
+int	set_settings(char **input, t_set *settings)
 {
 	bool	flagged;
 	int		i;
@@ -24,18 +24,18 @@ int	set_settings(char **argv, t_set *settings)
 	settings->bench = false;
 	flagged = true;
 	i = 0;
-	while (argv[i] != NULL && flagged == true)
+	while (input[i] != NULL && flagged == true)
 	{
 		flagged = false;
 		if (settings->strategy == UNSET)
 		{
-			settings->strategy = get_strategy_flag(argv[i]);
+			settings->strategy = get_strategy_flag(input[i]);
 			if (settings->strategy != UNSET)
 				flagged = true;
 		}
 		if (settings->bench == false)
 		{
-			settings->bench = get_bench_flag(argv[i]);
+			settings->bench = get_bench_flag(input[i]);
 			if (settings->bench == true)
 				flagged = true;
 		}

@@ -6,31 +6,31 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/22 11:53:40 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/22 14:05:26 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_put_strategy(t_strategy strategy, float disorder)
+void	ft_put_strategy(t_set settings)
 {
-	if (strategy == ADAPTIVE)
-	{
+	if (settings.adaptive == true)
 		ft_putstr_err("Adaptive");
-		strategy = get_strategy(disorder);
-	}
-	else if (strategy == SIMPLE)
+	else if (settings.strategy == SIMPLE)
 		ft_putstr_err("Simple");
-	else if (strategy == MEDIUM)
+	else if (settings.strategy == MEDIUM)
 		ft_putstr_err("Medium");
-	else if (strategy == COMPLEX)
+	else if (settings.strategy == COMPLEX)
 		ft_putstr_err("Complex");
-	ft_putstr_err(" / ");
-	if (strategy == SIMPLE)
+	if (settings.strategy == ADAPTIVE)
+		ft_putstr_err(" (Hardcoded - five or less arguments)");
+	else
+		ft_putstr_err(" / ");
+	if (settings.strategy == SIMPLE)
 		ft_putstr_err("O(n^2)");
-	else if (strategy == MEDIUM)
+	else if (settings.strategy == MEDIUM)
 		ft_putstr_err("O(n sqrt(n))");
-	else if (strategy == COMPLEX)
+	else if (settings.strategy == COMPLEX)
 		ft_putstr_err("O(n log n)");
 }
 
