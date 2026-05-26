@@ -6,13 +6,14 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/22 14:33:02 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 15:01:21 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static t_strategy	get_strategy(float disorder);
+static bool			already_sorted(t_stack *stack);
 static float		calculate_disorder(t_stack *stack);
 static void			solve_strategy(t_stack *stack_a, t_stack *stack_b,
 						int *stats, t_strategy strategy);
@@ -23,7 +24,6 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 	int		*stats;
 	float	disorder;
 
-	settings.adaptive = false;
 	if (settings.bench == true)
 	{
 		ft_bzero(stat_array, sizeof(stat_array));
@@ -40,7 +40,8 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 		if (stack_a->size > 5)
 			settings.strategy = get_strategy(disorder);
 	}
-	solve_strategy(stack_a, stack_b, stats, settings.strategy);
+	if (already_sorted(stack_a) == false)
+		solve_strategy(stack_a, stack_b, stats, settings.strategy);
 	if (settings.bench == true)
 		print_bench(disorder, settings, stats);
 }
@@ -53,6 +54,25 @@ static t_strategy	get_strategy(float disorder)
 		return (MEDIUM);
 	else
 		return (COMPLEX);
+}
+
+static bool	already_sorted(t_stack *stack)
+{
+	t_num	*current_number;
+	t_num	*next_number;
+	int		i;
+
+	current_number = stack->top;
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		next_number = current_number->next;
+		if (current_number->num > next_number->num)
+			return (false);
+		current_number = next_number;
+		i++;
+	}
+	return (true);
 }
 
 static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,

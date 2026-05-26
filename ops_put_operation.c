@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/12 14:18:21 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/12 14:51:20 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 15:03:28 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	ops_put_operation(enum e_operation operation, int *stats)
 	char	*op_strings[11];
 
 	if (stats != NULL)
-	{
 		stats[operation]++;
-		return ;
-	}
 	op_strings[SA] = "sa\n";
 	op_strings[SB] = "sb\n";
 	op_strings[SS] = "ss\n";

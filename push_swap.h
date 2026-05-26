@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/22 14:41:22 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 14:03:56 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ enum				e_operation
 	RRA,
 	RRB,
 	RRR
+};
+
+enum e_flag
+{
+	FOUND,
+	NOT_FOUND,
+	ALREADY_SET
 };
 
 typedef enum e_did_succeed

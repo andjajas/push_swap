@@ -6,42 +6,39 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/22 14:43:13 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 14:32:08 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool			get_bench_flag(const char *argument);
-static t_strategy	get_strategy_flag(const char *argument);
+static bool			strmatch(const char *a, const char *b);
+static enum e_flag	get_strategy_flag(const char *argument, t_set *settings);
+static enum e_flag	get_bench_flag(const char *argument, t_set *settings);
 
 int	set_settings(char **input, t_set *settings)
 {
-	bool	flagged;
 	int		i;
 
 	settings->strategy = UNSET;
 	settings->bench = false;
-	flagged = true;
+	settings->adaptive = false;
 	i = 0;
-	while (input[i] != NULL && flagged == true)
+	while (input[i] != NULL)
 	{
-		flagged = false;
-		if (settings->strategy == UNSET)
+		if (get_strategy_flag(input[i], settings) == FOUND)
 		{
-			settings->strategy = get_strategy_flag(input[i]);
-			if (settings->strategy != UNSET)
-				flagged = true;
+			i++;
+			continue ;
 		}
-		if (settings->bench == false)
+		if (get_bench_flag(input[i], settings) == FOUND)
 		{
-			settings->bench = get_bench_flag(input[i]);
-			if (settings->bench == true)
-				flagged = true;
+			i++;
+			continue ;
 		}
-		i++;
+		break ;
 	}
-	return (i - 1);
+	return (i);
 }
 
 static bool	strmatch(const char *a, const char *b)
@@ -56,24 +53,32 @@ static bool	strmatch(const char *a, const char *b)
 	return (true);
 }
 
-static bool	get_bench_flag(const char *argument)
+static enum e_flag	get_bench_flag(const char *argument, t_set *settings)
 {
-	if (strmatch(argument, "--bench") == true)
-		return (true);
+	if (settings->bench == true)
+		return (ALREADY_SET);
+	else if (strmatch(argument, "--bench") == true)
+	{
+		settings->bench = true;
+		return (FOUND);
+	}
 	else
-		return (false);
+		return (NOT_FOUND);
 }
 
-static t_strategy	get_strategy_flag(const char *argument)
+static enum e_flag	get_strategy_flag(const char *argument, t_set *settings)
 {
-	if (strmatch(argument, "--adaptive") == true)
-		return (ADAPTIVE);
+	if (settings->strategy != UNSET)
+		return (ALREADY_SET);
+	else if (strmatch(argument, "--adaptive") == true)
+		settings->strategy = ADAPTIVE;
 	else if (strmatch(argument, "--simple") == true)
-		return (SIMPLE);
+		settings->strategy = SIMPLE;
 	else if (strmatch(argument, "--medium") == true)
-		return (MEDIUM);
+		settings->strategy = MEDIUM;
 	else if (strmatch(argument, "--complex") == true)
-		return (COMPLEX);
+		settings->strategy = COMPLEX;
 	else
-		return (UNSET);
+		return (NOT_FOUND);
+	return (FOUND);
 }

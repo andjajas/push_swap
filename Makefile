@@ -70,7 +70,7 @@ program: all clean
 
 debug:
 	$(CC) -Wextra -Wall -O0 -g $(SOURCE) -o $(NAME)
-	gdb ./push_swap
+	gdb ./$(NAME)
 
 help:
 	@echo "\
