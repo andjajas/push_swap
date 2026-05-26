@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/22 09:31:11 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/22 09:31:11 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/26 18:25:57 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ static int	*sort_for_assign_rank(t_stack *stack_a);
 void	assign_rank(t_stack *stack_a)
 {
 	t_num	*now;
-	int		*nums;
+	int		*sorted;
 	int		i;
 	int		j;
 
-	nums = sort_for_assign_rank(stack_a);
-	if (nums == NULL)
+	sorted = sort_for_assign_rank(stack_a);
+	if (sorted == NULL)
 		return ;
-	stack_a->sorted = nums;
 	i = 0;
 	while (i < stack_a->size)
 	{
@@ -33,13 +32,14 @@ void	assign_rank(t_stack *stack_a)
 		j = 0;
 		while (j < stack_a->size)
 		{
-			if (now->num == nums[i])
+			if (now->num == sorted[i])
 				now->rank = i;
 			now = now->next;
 			j++;
 		}
 		i++;
 	}
+	free(sorted);
 }
 
 static int	*fill_for_assign_rank(t_stack *stack_a)

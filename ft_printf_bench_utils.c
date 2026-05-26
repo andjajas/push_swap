@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/05/07 19:36:23 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/22 14:05:26 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 20:32:39 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_put_strategy(t_set settings)
 		ft_putstr_err("Medium");
 	else if (settings.strategy == COMPLEX)
 		ft_putstr_err("Complex");
-	if (settings.strategy == ADAPTIVE)
+	if (settings.strategy == SOLVE_SUPER_EZ)
 		ft_putstr_err(" (Hardcoded - five or less arguments)");
 	else
 		ft_putstr_err(" / ");

@@ -49,7 +49,7 @@ static t_did_succeed	do_all(char **argv, t_stack *stack_a, t_stack *stack_b)
 	free_array(input);
 	push_swap(stack_a, stack_b, settings);
 	clear_stack(stack_a);
-	return (SUCCES);
+	return (SUCCESS);
 }
 
 // Check if no arguments are given

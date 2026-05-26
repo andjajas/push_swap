@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/22 09:30:53 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/22 09:30:53 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/26 19:54:11 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,8 @@ void	assign_chunks(t_stack *stack_a)
 		stack_a->chunk_ends[i] = (i + 1) * stack_a->chunk_size - 1;
 		i++;
 	}
-	if (i == stack_a->chunks_needed - 1)
-	{
-		stack_a->chunk_starts[i] = i * stack_a->chunk_size;
-		stack_a->chunk_ends[i] = stack_a->size - 1;
-	}
+	stack_a->chunk_starts[i] = i * stack_a->chunk_size;
+	stack_a->chunk_ends[i] = stack_a->size - 1;
 }
 
 static int	square_root(int n)

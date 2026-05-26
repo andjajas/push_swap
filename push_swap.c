@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/26 15:01:21 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 20:31:37 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 	int		*stats;
 	float	disorder;
 
-	if (settings.bench == true)
-	{
-		ft_bzero(stat_array, sizeof(stat_array));
-		stats = stat_array;
-	}
-	else
+	ft_bzero(stat_array, sizeof(stat_array));
+	stats = stat_array;
+	if (settings.bench == false)
 		stats = NULL;
 	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == UNSET)
@@ -37,7 +34,9 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 	if (settings.strategy == ADAPTIVE)
 	{
 		settings.adaptive = true;
-		if (stack_a->size > 5)
+		if (stack_a->size <= 5)
+			settings.strategy = SOLVE_SUPER_EZ;
+		else
 			settings.strategy = get_strategy(disorder);
 	}
 	if (already_sorted(stack_a) == false)
@@ -78,7 +77,7 @@ static bool	already_sorted(t_stack *stack)
 static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
 		t_strategy strategy)
 {
-	if (strategy == ADAPTIVE)
+	if (strategy == SOLVE_SUPER_EZ)
 		solve_super_ez(stack_a, stack_b, stats);
 	if (strategy == SIMPLE)
 		solve_simple(stack_a, stack_b, stats);

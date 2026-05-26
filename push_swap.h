@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/26 14:03:56 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/26 20:32:02 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ enum e_flag
 
 typedef enum e_did_succeed
 {
-	SUCCES = true,
+	SUCCESS = true,
 	FAILED = false
 }					t_did_succeed;
 
@@ -54,6 +54,7 @@ typedef enum e_strategy
 {
 	UNSET = -1,
 	ADAPTIVE,
+	SOLVE_SUPER_EZ,
 	SIMPLE,
 	MEDIUM,
 	COMPLEX
@@ -78,7 +79,6 @@ typedef struct s_stack
 {
 	t_num			*top;
 	int				size;
-	int				*sorted;
 	int				*chunk_starts;
 	int				*chunk_ends;
 	int				chunks_needed;

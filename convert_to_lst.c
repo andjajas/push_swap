@@ -35,7 +35,7 @@ t_did_succeed	convert_to_lst(char **input, t_stack *stack)
 		stack_add_back(stack, node);
 		input++;
 	}
-	return (SUCCES);
+	return (SUCCESS);
 }
 
 static bool	ft_is_valid_number(const char *s)
