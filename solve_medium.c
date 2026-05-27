@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/22 09:29:50 by andjajas      ########   odam.nl         */
+/*   Updated: 2026/05/27 16:58:23 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,3 @@ static int	find_biggest_rank(t_stack *stack_b)
 	}
 	return (index);
 }
-
-// using chunk sort for the solve_medium

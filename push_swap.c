@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/26 20:31:37 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 15:38:56 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	solve_strategy(t_stack *stack_a, t_stack *stack_b, int *stats,
 {
 	if (strategy == SOLVE_SUPER_EZ)
 		solve_super_ez(stack_a, stack_b, stats);
-	if (strategy == SIMPLE)
+	else if (strategy == SIMPLE)
 		solve_simple(stack_a, stack_b, stats);
 	else if (strategy == MEDIUM)
 		solve_medium(stack_a, stack_b, stats);

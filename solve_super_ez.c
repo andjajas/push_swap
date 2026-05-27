@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/21 13:20:05 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 16:58:52 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	solve_input_is_two(t_stack *stack_a, int *stats)
 		sa(stack_a, stats);
 }
 
-// work in progress:
 static void	solve_input_is_three(t_stack *stack_a, int *stats)
 {
 	long long	top;
@@ -74,9 +73,3 @@ static void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
 	while (stack_b->size > 0)
 		pa(stack_a, stack_b, stats);
 }
-
-/*
-we can use extra variables for clarity and we need these comparisons:
-compare top with middle, middle with bottom, top with bottom.
-213 sa, 231 rra, 312 ra, 132 sa ra, 321 sa rra or ra sa
-*/

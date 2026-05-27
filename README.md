@@ -42,6 +42,7 @@ Run the `make` command:
 > make
 
 This should compile push_swap fully and produce an executeable called `push_swap`.
+There are more options to `make`. Run `make help` to see them all.
 To use push_swap, start with executing the program and then listing all the numbers kind of like this:
 
 > ./push_swap 9 -24 -5135 9873 (etc)
@@ -62,10 +63,7 @@ Then you can also put the optional flag:
 
 * --bench
 
-Which will print data about what algorithm it used.<br>
-
-All options for make can be found under:
-> make help
+Which will print data about what algorithm it used, how many operations it did and what the disorder metric was.<br>
 
 ## Algorithms
 We had the advantage that many peer groups before us had struggled with testing different kinds of algorithms. We chose the following algorithms also based on their shared experiences with us.
@@ -120,3 +118,8 @@ We had the advantage that many peer groups before us had struggled with testing 
 	* mandatory prompt: `remember for me, always stay in 'Study and learn' mode, never give me answers or code directly, keep your anwers short so I can ask questions.`
 	* example of a follow-up prompt: `I challenge your logic, does it not stay 0(1) if we do not go through the whole list to find the bottom, because the bottom is right behind the top, so we just need to use the prev pointer to move to the bottom from the top in a doubly circular linked list.`<br>
 	* topics where AI improved understanding: selection sort, radix sort, chunk sort, low-disorder sorting(effort was done, but didn't succeed because of time-constraint)
+
+### Who did what
+
+tvan-kop focussed on input handling and parsing. Also focussed on selection the algorithm, printing the bench and calculating the disorder.
+andjajas made all the solving algorithms and all the linked list functions.

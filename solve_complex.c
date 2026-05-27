@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/19 16:24:08 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 16:58:12 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,3 @@ static int	calculate_bits(t_stack *stack_a)
 		bits++;
 	return (bits);
 }
-
-// Radix sort was used as the algorithm for solve_complex

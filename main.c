@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>        +#+                      */
 /*                                                  +#+                       */
 /*   Created: 2026/04/14 20:42:37 by tvan-kop     #+#    #+#                  */
-/*   Updated: 2026/05/21 12:49:57 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 16:49:34 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,3 @@ static t_did_succeed	do_all(char **argv, t_stack *stack_a, t_stack *stack_b)
 	clear_stack(stack_a);
 	return (SUCCESS);
 }
-
-// Check if no arguments are given
-// Check for flags, and set enum values for them
-// Put everything into a t_num list
-// if theres any duplicate numbers or numbers outside of the integer limit,
-// or if any number is invalid or if any allocation fails,
-// free everything then return 1
-// Call the function that andre will use

@@ -82,7 +82,7 @@ make clean	Removes all object files (.o files).\n\
 make fclean	Does clean and removes the binary progam $(NAME).\n\
 make re		Does fclean, then remakes the program.\n\
 make program	Does make all, then cleans up the object files.\n\
-make debug	Remakes the $(NAME) program in debug mode, compiling with flags -O0 and -g.\n\
+make debug	Remakes the $(NAME) program in debug mode, compiling with flags -O0 and -g.\
 "
 
 .PHONY: all clean fclean re program program debug help
