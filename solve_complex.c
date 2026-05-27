@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:14:22 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/27 16:58:12 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 19:02:18 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	solve_complex(t_stack *stack_a, t_stack *stack_b, int *stats)
 	int	counter_stack_a;
 	int	current_bit;
 
-	assign_rank(stack_a);
 	bits = calculate_bits(stack_a);
 	ib = 0;
 	while (ib < bits)

@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/14 19:37:47 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/26 20:32:02 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 19:46:33 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,9 @@ void				ft_printf_bench(const char *string, ...);
 void				assign_rank(t_stack *stack_a);
 void				assign_chunks(t_stack *stack_a);
 int					needed_rotations(t_stack *stack_a, int start, int end);
-void				rotate_smallest_to_top(t_stack *stack, int *stats);
+void				rotate_biggest_to_top(t_stack *stack, int *stats,
+						void (*rx)(t_stack *, int *),
+						void (*rrx)(t_stack *, int *));
 
 // operation functions
 void				pa(t_stack *stack_a, t_stack *stack_b, int *stats);

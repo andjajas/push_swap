@@ -6,7 +6,7 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/11 15:36:45 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/27 16:58:52 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 19:49:25 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,13 @@ static void	solve_input_is_five(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	while (stack_a->size > 3)
 	{
-		rotate_smallest_to_top(stack_a, stats);
+		rotate_biggest_to_top(stack_a, stats, ra, rra);
 		pb(stack_b, stack_a, stats);
 	}
 	solve_input_is_three(stack_a, stats);
 	while (stack_b->size > 0)
+	{
 		pa(stack_a, stack_b, stats);
+		ra(stack_a, stats);
+	}
 }

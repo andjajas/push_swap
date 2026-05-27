@@ -6,68 +6,70 @@
 /*   By: andjajas <andjajas@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 20:30:21 by andjajas      #+#    #+#                 */
-/*   Updated: 2026/05/12 21:01:15 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 20:29:00 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_index_smallest(t_stack *stack_a);
+static int	find_highest_rank(t_stack *stack);
 
 void	solve_simple(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
 	while (stack_a->size)
-	{
-		rotate_smallest_to_top(stack_a, stats);
 		pb(stack_b, stack_a, stats);
-	}
 	while (stack_b->size)
+	{
+		rotate_biggest_to_top(stack_b, stats, rb, rrb);
 		pa(stack_a, stack_b, stats);
+	}
 }
 
-void	rotate_smallest_to_top(t_stack	*stack, int *stats)
+void	rotate_biggest_to_top(t_stack *stack, int *stats,
+			void (*rx)(t_stack *, int *),
+			void (*rrx)(t_stack *, int *))
 {
-	int	ra_needed;
-	int	rra_needed;
+	int	r_needed;
+	int	rr_needed;
 
-	ra_needed = find_index_smallest(stack);
-	if (ra_needed == 0)
+	r_needed = find_highest_rank(stack);
+	if (r_needed == 0)
 		return ;
-	if ((ra_needed) <= stack->size / 2)
+	if ((r_needed) <= stack->size / 2)
 	{
-		while (ra_needed)
+		while (r_needed)
 		{
-			ra(stack, stats);
-			ra_needed--;
+			rx(stack, stats);
+			r_needed--;
 		}
 	}
 	else
 	{
-		rra_needed = stack->size - ra_needed;
-		while (rra_needed)
+		rr_needed = stack->size - r_needed;
+		while (rr_needed)
 		{
-			rra(stack, stats);
-			rra_needed--;
+			rrx(stack, stats);
+			rr_needed--;
 		}
 	}
 }
 
-static int	find_index_smallest(t_stack *stack_a)
+static int	find_highest_rank(t_stack *stack)
 {
 	t_num		*current_node;
-	long long	current_smallest_value;
+	long long	current_highest_rank;
 	int			i;
 	int			index;
 
-	current_node = stack_a->top;
-	current_smallest_value = stack_a->top->num;
+	current_node = stack->top;
+	current_highest_rank = current_node->rank;
 	i = 0;
-	index = i;
-	while (i < stack_a->size)
+	index = 0;
+	while (i < stack->size)
 	{
-		if (current_node->num < current_smallest_value)
+		if (current_node->rank > current_highest_rank)
 		{
-			current_smallest_value = current_node->num;
+			current_highest_rank = current_node->rank;
 			index = i;
 		}
 		current_node = current_node->next;

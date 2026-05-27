@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:10:54 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/27 16:58:23 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 20:04:23 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,12 @@
 static void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats);
 static void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b,
 				int chunk_index, int *stats);
-static void	rotate_biggest_to_top(t_stack *stack_b, int *stats);
-static int	find_biggest_rank(t_stack *stack_b);
 
 void	solve_medium(t_stack *stack_a, t_stack *stack_b, int *stats)
 {
-	assign_rank(stack_a);
 	assign_chunks(stack_a);
 	push_chunks(stack_a, stack_b, stats);
-	while (stack_b->size > 0)
-	{
-		rotate_biggest_to_top(stack_b, stats);
-		pa(stack_a, stack_b, stats);
-	}
+	solve_simple(stack_a, stack_b, stats);
 }
 
 static void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *stats)
@@ -71,55 +64,4 @@ static void	push_next_in_chunk(t_stack *stack_a, t_stack *stack_b,
 		rot++;
 	}
 	pb(stack_b, stack_a, stats);
-}
-
-static void	rotate_biggest_to_top(t_stack *stack_b, int *stats)
-{
-	int	rb_needed;
-	int	rrb_needed;
-
-	rb_needed = find_biggest_rank(stack_b);
-	if (rb_needed == 0)
-		return ;
-	if ((rb_needed) <= stack_b->size / 2)
-	{
-		while (rb_needed)
-		{
-			rb(stack_b, stats);
-			rb_needed--;
-		}
-	}
-	else
-	{
-		rrb_needed = stack_b->size - rb_needed;
-		while (rrb_needed)
-		{
-			rrb(stack_b, stats);
-			rrb_needed--;
-		}
-	}
-}
-
-static int	find_biggest_rank(t_stack *stack_b)
-{
-	t_num		*current_node;
-	long long	current_biggest_rank;
-	int			i;
-	int			index;
-
-	current_node = stack_b->top;
-	current_biggest_rank = current_node->rank;
-	i = 0;
-	index = 0;
-	while (i < stack_b->size)
-	{
-		if (current_node->rank > current_biggest_rank)
-		{
-			current_biggest_rank = current_node->rank;
-			index = i;
-		}
-		current_node = current_node->next;
-		i++;
-	}
-	return (index);
 }

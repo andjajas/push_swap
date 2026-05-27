@@ -6,7 +6,7 @@
 /*   By: tvan-kop <tvan-kop@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 16:19:19 by tvan-kop      #+#    #+#                 */
-/*   Updated: 2026/05/27 15:38:56 by tvan-kop     ########   odam.nl          */
+/*   Updated: 2026/05/27 19:01:00 by tvan-kop     ########   odam.nl          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 		else
 			settings.strategy = get_strategy(disorder);
 	}
+	assign_rank(stack_a);
 	if (already_sorted(stack_a) == false)
 		solve_strategy(stack_a, stack_b, stats, settings.strategy);
 	if (settings.bench == true)
