@@ -38,6 +38,8 @@ int	set_settings(char **input, t_set *settings)
 		}
 		break ;
 	}
+	if (settings->strategy == UNSET)
+		settings->strategy = ADAPTIVE;
 	return (i);
 }
 

@@ -29,8 +29,6 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 	if (settings.bench == false)
 		stats = NULL;
 	disorder = calculate_disorder(stack_a);
-	if (settings.strategy == UNSET)
-		settings.strategy = ADAPTIVE;
 	if (settings.strategy == ADAPTIVE)
 	{
 		settings.adaptive = true;

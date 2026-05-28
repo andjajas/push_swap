@@ -44,6 +44,12 @@ static bool	ft_is_valid_number(const char *s)
 		s++;
 	if (*s == '+' || *s == '-')
 		s++;
+	while (*s == '0')
+	{
+		s++;
+		if (*s == '\0')
+			return (true);
+	}
 	if (ft_strlen(s) > 10)
 		return (false);
 	if (ft_isdigit(*s) == false)
