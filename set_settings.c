@@ -14,7 +14,6 @@
 
 static bool			strmatch(const char *a, const char *b);
 static enum e_flag	get_strategy_flag(const char *argument, t_set *settings);
-static enum e_flag	get_bench_flag(const char *argument, t_set *settings);
 
 int	set_settings(char **input, t_set *settings)
 {
@@ -31,8 +30,9 @@ int	set_settings(char **input, t_set *settings)
 			i++;
 			continue ;
 		}
-		if (get_bench_flag(input[i], settings) == FOUND)
+		if (settings->bench == false && strmatch(input[i], "--bench") == true)
 		{
+			settings->bench = true;
 			i++;
 			continue ;
 		}
@@ -53,19 +53,6 @@ static bool	strmatch(const char *a, const char *b)
 		b++;
 	}
 	return (true);
-}
-
-static enum e_flag	get_bench_flag(const char *argument, t_set *settings)
-{
-	if (settings->bench == true)
-		return (ALREADY_SET);
-	else if (strmatch(argument, "--bench") == true)
-	{
-		settings->bench = true;
-		return (FOUND);
-	}
-	else
-		return (NOT_FOUND);
 }
 
 static enum e_flag	get_strategy_flag(const char *argument, t_set *settings)
