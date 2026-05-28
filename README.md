@@ -122,4 +122,4 @@ We had the advantage that many peer groups before us had struggled with testing 
 ### Who did what
 
 tvan-kop focussed on input handling and parsing. Also focussed on selection the algorithm, printing the bench and calculating the disorder.
-andjajas made all the solving algorithms and all the linked list functions.
+andjajas made all the solving algorithms, all operation functions and all the linked list functions.
