@@ -16,8 +16,6 @@ void	ops_put_operation(enum e_operation operation, int *stats)
 {
 	char	*op_strings[11];
 
-	if (stats != NULL)
-		stats[operation]++;
 	op_strings[SA] = "sa\n";
 	op_strings[SB] = "sb\n";
 	op_strings[SS] = "ss\n";
@@ -30,4 +28,5 @@ void	ops_put_operation(enum e_operation operation, int *stats)
 	op_strings[RRB] = "rrb\n";
 	op_strings[RRR] = "rrr\n";
 	ft_putstr(op_strings[operation]);
+	stats[operation]++;
 }

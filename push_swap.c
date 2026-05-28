@@ -20,14 +20,10 @@ static void			solve_strategy(t_stack *stack_a, t_stack *stack_b,
 
 void	push_swap(t_stack *stack_a, t_stack *stack_b, t_set settings)
 {
-	int		stat_array[11];
-	int		*stats;
+	int		stats[11];
 	float	disorder;
 
-	ft_bzero(stat_array, sizeof(stat_array));
-	stats = stat_array;
-	if (settings.bench == false)
-		stats = NULL;
+	ft_bzero(stats, sizeof(stats));
 	disorder = calculate_disorder(stack_a);
 	if (settings.strategy == ADAPTIVE)
 	{
